@@ -1,0 +1,19 @@
+.student-detail {
+  .student-avatar {
+    position: relative;
+    aspect-ratio: 3/4;
+    margin-bottom: 20px;
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+    }
+  }
+  @include chiTietKyYeu("mobile");
+  @include chiTietKyYeu("tablet");
+  @include chiTietKyYeu("smallLaptop");
+  @include chiTietKyYeu("mediumLaptop");
+  @include chiTietKyYeu("bigLaptop");
+}

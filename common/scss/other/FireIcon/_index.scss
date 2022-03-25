@@ -1,0 +1,54 @@
+.flame-wrapper {
+  position: relative;
+  animation: flicker 3ms ease-in infinite;
+  margin-bottom: -20%;
+  .flame {
+    bottom: 0;
+    position: absolute;
+    border-radius: 50% 0% 50% 50%;
+    transform: rotate(-45deg);
+    &.red {
+      width: 20px;
+      height: 20px;
+      background: orangered;
+    }
+    &.orange {
+      width: 15px;
+      height: 15px;
+      background: orange;
+      left: 2px;
+    }
+    &.gold {
+      width: 10px;
+      height: 10px;
+      background: gold;
+      left: 5px;
+    }
+    &.white {
+      width: 7px;
+      height: 7px;
+      background: lightyellow;
+      left: 6px;
+    }
+  }
+}
+@keyframes flicker {
+  0% {
+    transform: rotate(-1deg);
+  }
+  20% {
+    transform: rotate(2deg) scaleY(1.05);
+  }
+  40% {
+    transform: rotate(-1deg);
+  }
+  60% {
+    transform: rotate(1deg);
+  }
+  80% {
+    transform: rotate(-1deg) scaleY(0.9);
+  }
+  100% {
+    transform: rotate(1deg);
+  }
+}

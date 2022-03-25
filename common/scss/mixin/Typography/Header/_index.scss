@@ -1,0 +1,70 @@
+@mixin fontSizeNavigation($breakpoint) {
+  @if $breakpoint == "bigLaptop" {
+    @media (min-width: 1600px) {
+      font-size: 18px;
+      line-height: 21px;
+    }
+  }
+  @if $breakpoint == "mediumLaptop" {
+    @media (min-width: 1440px) {
+      font-size: 16px;
+      line-height: 20px;
+    }
+  }
+  @if $breakpoint == "smallLaptop" {
+    @media (min-width: 1024px) {
+      font-size: 13px;
+      line-height: 16px;
+    }
+  }
+  //   @if $breakpoint == "tablet" {
+  //     @media (min-width: 768px) {
+  //       font-size: 16px;
+  //       line-height: 20px;
+  //     }
+  //   }
+  //   @if $breakpoint == "mobile" {
+  //     @media (min-width: 360px) {
+  //       font-size: 16px;
+  //       line-height: 20px;
+  //     }
+  //   }
+}
+@mixin fontSizeNavigationBtn($breakpoint) {
+  @if $breakpoint == "bigLaptop" {
+    @media (min-width: 1600px) {
+      font-size: 16px;
+      line-height: 18px;
+    }
+  }
+  @if $breakpoint == "mediumLaptop" {
+    @media (min-width: 1440px) {
+      font-size: 15px;
+      line-height: 20px;
+      svg {
+        font-size: 30px;
+      }
+    }
+  }
+  @if $breakpoint == "smallLaptop" {
+    @media (min-width: 1024px) {
+      font-size: 13px;
+      line-height: 20px;
+      svg {
+        font-size: 24px;
+      }
+    }
+  }
+  //   @if $breakpoint == "tablet" {
+  //     @media (min-width: 768px) {
+  //       font-size: 16px;
+  //       line-height: 20px;
+  //     }
+  //   }
+  //   @if $breakpoint == "mobile" {
+  //     @media (min-width: 360px) {
+  //       font-size: 16px;
+  //       line-height: 20px;
+  //     }
+  //   }
+}

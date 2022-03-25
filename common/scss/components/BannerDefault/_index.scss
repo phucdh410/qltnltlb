@@ -1,0 +1,8 @@
+.banner-default {
+  background: linear-gradient(180deg, #ffcafd 0%, #ffffff 59.69%, #ffb8fc 100%);
+  @include bannerDefault("mobile");
+  @include bannerDefault("tablet");
+  @include bannerDefault("smallLaptop");
+  @include bannerDefault("mediumLaptop");
+  @include bannerDefault("bigLaptop");
+}

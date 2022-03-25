@@ -1,0 +1,97 @@
+.footer {
+  bottom: 0;
+  position: relative;
+  width: 100%;
+  .information {
+    background-color: $color-pink;
+    color: $color-white;
+    padding-top: 15px;
+
+    .slogan {
+      text-align: center;
+      .innghieng {
+        font-family: "UTM Dinh Tran";
+        font-size: 60px;
+        font-weight: 400;
+        line-height: 85.63px;
+      }
+      .tuoitre {
+        font-size: 18px;
+        text-transform: uppercase;
+        font-weight: 700;
+        line-height: 20.7px;
+        margin-bottom: 1rem;
+      }
+      .bac {
+        font-family: "OpenSans";
+        font-size: 64px;
+        font-weight: 800;
+        font-style: normal;
+        text-transform: uppercase;
+        line-height: 78.02px;
+      }
+    }
+    .contact {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      .contact-title {
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 27.6px;
+        margin-bottom: 1rem;
+      }
+      .contact-list {
+        padding-left: 0;
+        font-size: 20px;
+        line-height: 30px;
+        li {
+          margin-bottom: 10px;
+        }
+        .contact-icon {
+          padding-right: 10px;
+        }
+        .contact-item {
+          .interact {
+            cursor: pointer;
+          }
+        }
+      }
+      .icon {
+        position: absolute;
+        right: 20px;
+        bottom: 10%;
+        .facebook,
+        .youtube {
+          color: $color-white;
+          margin-right: 10px;
+          svg {
+            font-size: 40px;
+          }
+        }
+        .facebook {
+          background-color: blue;
+        }
+        .youtube {
+          background-color: red;
+        }
+      }
+    }
+    @include fontSizeFooter("mobile");
+    @include fontSizeFooter("tablet");
+    @include fontSizeFooter("smallLaptop");
+    @include fontSizeFooter("mediumLaptop");
+    @include fontSizeFooter("bigLaptop");
+  }
+  .copyright {
+    background-color: $color-purple;
+    p {
+      font-style: italic;
+      text-align: center;
+      color: $color-white;
+      margin: 0.5rem 0;
+    }
+  }
+}

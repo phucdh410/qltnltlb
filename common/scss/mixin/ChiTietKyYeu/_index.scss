@@ -1,0 +1,94 @@
+@mixin chiTietKyYeu($breakpoint) {
+  @if $breakpoint == "bigLaptop" {
+    @media (min-width: 1600px) {
+      .student-avatar {
+        img {
+          box-shadow: 8.27497px 16.5499px 20.6874px rgba(229, 91, 230, 0.5);
+          border-radius: 35px;
+        }
+      }
+      .student-main-info {
+        font-size: 48px;
+        line-height: 55px;
+      }
+      .student-achievement-label {
+        font-size: 32px;
+        padding: 20px 30px;
+      }
+      .student-year {
+        font-size: 42px;
+        line-height: 48px;
+        border-left: 20px solid;
+        padding-left: 20px;
+      }
+      .student-achievement-box {
+        padding: 20px;
+      }
+      .student-achievement-content {
+        font-size: 30px;
+        line-height: 34.5px;
+        padding: 20px 25px;
+      }
+      .btn-back {
+        font-size: 32px;
+        line-height: 45px;
+        padding: 30px;
+      }
+    }
+  }
+  @if $breakpoint == "mediumLaptop" {
+    @media (min-width: 1440px) {
+    }
+  }
+  @if $breakpoint == "smallLaptop" {
+    @media (min-width: 1024px) {
+      .btn-back {
+        font-size: 18px;
+        line-height: 30px;
+        padding: 12px 30px;
+      }
+    }
+  }
+  @if $breakpoint == "tablet" {
+    @media (min-width: 768px) {
+    }
+  }
+  @if $breakpoint == "mobile" {
+    @media (min-width: 360px) {
+      .student-avatar {
+        img {
+          box-shadow: 6.27497px 5.5499px 17.6874px rgb(229 91 230 / 50%);
+          border-radius: 25px;
+        }
+      }
+      .student-main-info {
+        font-size: 28px;
+        line-height: 26px;
+      }
+      .student-achievement-label {
+        padding: 0 16px;
+        font-size: 20px;
+      }
+      .student-year {
+        font-size: 22px;
+        line-height: 36px;
+        border-left-width: 10px;
+        padding-left: 10px;
+      }
+      .student-achievement-box {
+        padding: 10px;
+      }
+      .student-achievement-content {
+        font-size: 22px;
+        line-height: 28px;
+        font-weight: 400;
+        padding: 6px 10px;
+      }
+      .btn-back {
+        font-size: 16px;
+        line-height: 24px;
+        padding: 10px 20px;
+      }
+    }
+  }
+}

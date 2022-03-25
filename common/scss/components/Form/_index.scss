@@ -1,0 +1,7 @@
+.my-form {
+  @include form("mobile");
+  @include form("tablet");
+  @include form("smallLaptop");
+  @include form("mediumLaptop");
+  @include form("bigLaptop");
+}

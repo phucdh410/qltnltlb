@@ -1,0 +1,10 @@
+.wrapper {
+  position: relative;
+  min-height: 100vh;
+  transition: transform 0.3s ease-in-out;
+  background: $color-bg;
+}
+.offcanvas.show + .wrapper {
+  //transform: translate3d(-250px, 0, 0);
+  transform: translateX(-250px);
+}

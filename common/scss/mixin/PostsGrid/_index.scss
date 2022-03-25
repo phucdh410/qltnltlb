@@ -1,0 +1,43 @@
+@mixin PostsGrid($breakpoint) {
+  @if $breakpoint == "bigLaptop" {
+    @media (min-width: 1600px) {
+      padding: 20px 60px;
+      .book-thumb {
+        img {
+          box-shadow: 8.27497px 16.5499px 20.6874px rgba(229, 91, 230, 0.5);
+          border-radius: 35px;
+        }
+      }
+    }
+  }
+  @if $breakpoint == "mediumLaptop" {
+    @media (min-width: 1440px) {
+    }
+  }
+  @if $breakpoint == "smallLaptop" {
+    @media (min-width: 1024px) {
+    }
+  }
+  @if $breakpoint == "tablet" {
+    @media (min-width: 768px) {
+      padding: 20px 60px;
+      .book-thumb {
+        img {
+          box-shadow: 5.27497px 8.5499px 14.6874px rgb(229 91 230 / 50%);
+          border-radius: 25px;
+        }
+      }
+    }
+  }
+  @if $breakpoint == "mobile" {
+    @media (min-width: 360px) {
+      padding: 20px 100px;
+      .book-thumb {
+        img {
+          box-shadow: 5.27497px 8.5499px 14.6874px rgb(229 91 230 / 50%);
+          border-radius: 20px;
+        }
+      }
+    }
+  }
+}

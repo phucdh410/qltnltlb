@@ -1,0 +1,76 @@
+.diaries {
+  .diaries-title {
+    font-style: normal;
+    font-weight: 700;
+    letter-spacing: 0em;
+    text-align: center;
+    color: $color-dark-purple;
+  }
+  .diaries-slider-container {
+    .card-content {
+      border-radius: inherit;
+      padding: 40px;
+      .diaries-image {
+        img {
+          border-radius: 13px;
+        }
+      }
+      .diaries-info {
+        text-align: left;
+        color: $color-dark-purple;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .name {
+          font-style: normal;
+          font-weight: 700;
+          letter-spacing: 0em;
+        }
+        .khoa,
+        .department {
+          font-style: italic;
+          font-weight: 400;
+          letter-spacing: 0em;
+        }
+        .achievement {
+          font-style: normal;
+          font-weight: 400;
+          letter-spacing: 0em;
+        }
+      }
+      .hobby {
+        font-style: normal;
+        font-weight: 400;
+        letter-spacing: 0em;
+        text-align: justify;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        display: -webkit-box;
+      }
+    }
+  }
+  @include fontSizeDiaries("mobile");
+  @include fontSizeDiaries("tablet");
+  @include fontSizeDiaries("smallLaptop");
+  @include fontSizeDiaries("mediumLaptop");
+  @include fontSizeDiaries("bigLaptop");
+
+  .slick-prev,
+  .slick-next {
+    height: 40px;
+    width: 40px;
+    &:before {
+      content: "";
+    }
+    svg {
+      height: 40px;
+      width: 40px;
+    }
+  }
+}
+// Tin nooi bac
+// Read more btn cach xuong duoi
+
+// blog category max 4

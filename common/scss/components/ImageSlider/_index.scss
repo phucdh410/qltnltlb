@@ -1,0 +1,23 @@
+.image-slider {
+  @include imageSlider("mobile");
+  @include imageSlider("tablet");
+  @include imageSlider("smallLaptop");
+  @include imageSlider("mediumLaptop");
+  @include imageSlider("bigLaptop");
+  .slick-slide {
+    .image-item {
+      img {
+        object-fit: cover;
+        margin: auto;
+      }
+    }
+  }
+  .slick-prev,
+  .slick-next {
+    height: 40px;
+    width: 40px;
+    &:before {
+      font-size: 40px;
+    }
+  }
+}

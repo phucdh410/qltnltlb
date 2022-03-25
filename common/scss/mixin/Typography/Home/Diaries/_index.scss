@@ -1,0 +1,224 @@
+@mixin fontSizeDiaries($breakpoint) {
+  @if $breakpoint == "bigLaptop" {
+    @media (min-width: 1600px) {
+      .diaries-title {
+        font-size: 42px;
+        line-height: 48px;
+      }
+      .diaries-slider-container {
+        margin: 60px 80px;
+        padding: 0 60px;
+        .card-profile {
+          border-radius: 45.5123px;
+          box-shadow: 8.27497px 5.5499px 6.6874px rgb(229 91 230 / 50%);
+        }
+        .card-container {
+          padding: 0 70px;
+        }
+        .card-content {
+          padding: 40px;
+          height: 420px;
+          .diaries-info {
+            .name {
+              font-size: 32px;
+              line-height: 45px;
+            }
+            .khoa,
+            .department {
+              font-size: 24px;
+              line-height: 28px;
+            }
+            .achievement {
+              font-size: 20px;
+              line-height: 23px;
+            }
+          }
+          .hobby {
+            font-size: 24px;
+            line-height: 36px;
+            padding-top: 18px;
+            -webkit-line-clamp: 4;
+          }
+        }
+      }
+    }
+  }
+  @if $breakpoint == "mediumLaptop" {
+    @media (min-width: 1440px) {
+      .diaries-title {
+        font-size: 30px;
+        line-height: 40px;
+      }
+      .diaries-slider-container {
+        margin: 40px 50px;
+        padding: 0 60px;
+        .card-profile {
+          border-radius: 30.5123px;
+          box-shadow: 4.27497px 3.5499px 6.6874px rgb(229 91 230 / 50%);
+        }
+
+        .card-container {
+          padding: 0 50px;
+        }
+        .card-content {
+          padding: 24px;
+          height: 340px;
+          .diaries-info {
+            .name {
+              font-size: 22px;
+              line-height: 30px;
+            }
+            .khoa,
+            .department {
+              font-size: 20px;
+              line-height: 26px;
+            }
+            .achievement {
+              font-size: 16px;
+              line-height: 22px;
+            }
+          }
+          .hobby {
+            font-size: 18px;
+            line-height: 30px;
+            padding-top: 18px;
+            -webkit-line-clamp: 4;
+          }
+        }
+      }
+    }
+  }
+  @if $breakpoint == "smallLaptop" {
+    @media (min-width: 1024px) {
+      .diaries-title {
+        font-size: 26px;
+        line-height: 36px;
+      }
+      .diaries-slider-container {
+        margin: 40px 50px;
+        padding: 0 60px;
+        .card-profile {
+          border-radius: 30.5123px;
+          box-shadow: 4.27497px 3.5499px 6.6874px rgb(229 91 230 / 50%);
+        }
+        .card-container {
+          padding: 0 30px;
+        }
+        .card-content {
+          padding: 20px;
+          height: 320px;
+          .diaries-info {
+            .name {
+              font-size: 20px;
+              line-height: 30px;
+            }
+            .khoa,
+            .department {
+              font-size: 17px;
+              line-height: 20px;
+            }
+            .achievement {
+              font-size: 16px;
+              line-height: 22px;
+            }
+          }
+          .hobby {
+            font-size: 16px;
+            line-height: 24px;
+            padding-top: 16px;
+            -webkit-line-clamp: 4;
+          }
+        }
+      }
+    }
+  }
+  @if $breakpoint == "tablet" {
+    @media (min-width: 768px) {
+      .diaries-title {
+        font-size: 22px;
+        line-height: 28px;
+      }
+      .diaries-slider-container {
+        margin: 20px 60px;
+        padding: 0 60px;
+        .card-profile {
+          border-radius: 30.5123px;
+          box-shadow: 4.27497px 3.5499px 6.6874px rgb(229 91 230 / 50%);
+        }
+        .card-container {
+          padding: 0 30px;
+        }
+        .card-content {
+          padding: 20px;
+          height: 280px;
+
+          .diaries-info {
+            .name {
+              font-size: 18px;
+              line-height: 30px;
+            }
+            .khoa,
+            .department {
+              font-size: 16px;
+              line-height: 20px;
+            }
+            .achievement {
+              font-size: 14px;
+              line-height: 20px;
+            }
+          }
+          .hobby {
+            font-size: 15px;
+            line-height: 24px;
+            padding-top: 16px;
+            -webkit-line-clamp: 4;
+          }
+        }
+      }
+    }
+  }
+  @if $breakpoint == "mobile" {
+    @media (min-width: 360px) {
+      .diaries-title {
+        font-size: 18px;
+        line-height: 26px;
+      }
+      .diaries-slider-container {
+        margin: 20px 26px;
+        padding: 0 16px;
+        .card-profile {
+          border-radius: 20.5123px;
+          box-shadow: 4.27497px 3.5499px 1.6874px rgb(229 91 230 / 50%);
+        }
+        .card-container {
+          padding: 0 10px;
+        }
+        .card-content {
+          height: 220px;
+          padding: 10px;
+          .diaries-info {
+            .name {
+              font-size: 14px;
+              line-height: 20px;
+            }
+            .khoa,
+            .department {
+              font-size: 13px;
+              line-height: 16px;
+            }
+            .achievement {
+              font-size: 14px;
+              line-height: 16px;
+            }
+          }
+          .hobby {
+            font-size: 13px;
+            line-height: 22px;
+            padding-top: 8px;
+            -webkit-line-clamp: 4;
+          }
+        }
+      }
+    }
+  }
+}

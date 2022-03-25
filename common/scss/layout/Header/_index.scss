@@ -1,0 +1,64 @@
+.header {
+  position: absolute;
+  left: 0;
+  right: 0;
+  .btn-login {
+    @include fontSizeNavigationBtn("mobile");
+    @include fontSizeNavigationBtn("tablet");
+    @include fontSizeNavigationBtn("smallLaptop");
+    @include fontSizeNavigationBtn("mediumLaptop");
+    @include fontSizeNavigationBtn("bigLaptop");
+  }
+  .tab-item {
+    @include fontSizeNavigation("mobile");
+    @include fontSizeNavigation("tablet");
+    @include fontSizeNavigation("smallLaptop");
+    @include fontSizeNavigation("mediumLaptop");
+    @include fontSizeNavigation("bigLaptop");
+  }
+  .logo-container {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    .logo-item {
+      margin: auto;
+    }
+  }
+  .main-nav {
+    display: block;
+  }
+  .sub-nav {
+    display: none;
+  }
+  @media screen and(max-width:1023px) {
+    .main-nav {
+      display: none;
+    }
+    .sub-nav {
+      display: block;
+    }
+  }
+}
+
+.canvas-toggler {
+  .icon {
+    opacity: 1;
+    transition: 0.5s;
+    &.open {
+      position: absolute;
+      opacity: 0;
+    }
+  }
+}
+.offcanvas.show + .wrapper {
+  .canvas-toggler {
+    .icon {
+      &.close {
+        opacity: 0;
+      }
+      &.open {
+        opacity: 1;
+      }
+    }
+  }
+}

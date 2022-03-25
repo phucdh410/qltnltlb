@@ -1,0 +1,31 @@
+.main-bg {
+  height: 1080px;
+  background: url(/assets/images/global/banner-overlay.webp), $color-bg-gradient;
+  background-repeat: no-repeat;
+  background-blend-mode: overlay;
+}
+@media screen and(min-width:0px) {
+  .main-bg {
+    height: 430px;
+  }
+}
+@media screen and(min-width:768px) {
+  .main-bg {
+    height: 640px;
+  }
+}
+@media screen and(min-width:1024px) {
+  .main-bg {
+    height: 800px;
+  }
+}
+@media screen and(min-width:1440px) {
+  .main-bg {
+    height: 850px;
+  }
+}
+@media screen and(min-width:1600px) {
+  .main-bg {
+    height: 1080px;
+  }
+}

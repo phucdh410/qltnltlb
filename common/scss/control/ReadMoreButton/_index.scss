@@ -1,0 +1,9 @@
+.read-more-btn {
+  float: right;
+  margin-bottom: 12px;
+  @include readMoreButton("mobile");
+  @include readMoreButton("tablet");
+  @include readMoreButton("smallLaptop");
+  @include readMoreButton("mediumLaptop");
+  @include readMoreButton("bigLaptop");
+}

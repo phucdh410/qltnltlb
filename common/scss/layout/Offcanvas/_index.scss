@@ -1,0 +1,29 @@
+#submenu {
+  &.offcanvas {
+    width: $width-offcanvas;
+    overflow: hidden;
+    background: $color-bg-gradient;
+    .offcanvas-btn-close {
+      color: red;
+      transition: 0.5s ease-in-out;
+      transform: translateX(-$width-offcanvas);
+    }
+    &.show {
+      .offcanvas-btn-close {
+        transform: translateX(0);
+      }
+    }
+    .offcanvas-body {
+      padding: 0;
+    }
+  }
+
+  .sub-nav {
+    padding-left: 0;
+    .sub-item {
+      font-size: 16px;
+      line-height: 1.5;
+      font-weight: 400;
+    }
+  }
+}

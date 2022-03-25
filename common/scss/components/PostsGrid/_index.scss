@@ -1,0 +1,22 @@
+.book-container {
+  .book-item {
+    .book-thumb {
+      position: relative;
+      aspect-ratio: 3/4;
+      img {
+        margin: auto;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background: #ffffff;
+      }
+    }
+    @include PostsGrid("mobile");
+    @include PostsGrid("tablet");
+    @include PostsGrid("smallLaptop");
+    @include PostsGrid("mediumLaptop");
+    @include PostsGrid("bigLaptop");
+  }
+}
