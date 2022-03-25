@@ -5,7 +5,7 @@ import { ThemeProvider } from "@mui/material";
 import AOS from "aos";
 import config from "config";
 import Layout from "common/components/layout";
-import ScrollTop from "common/components/other/ScrollTop";
+// import ScrollTop from "common/components/other/ScrollTop";
 import Submenu from "common/components/layout/Submenu";
 import theme from "theme/theme";
 
