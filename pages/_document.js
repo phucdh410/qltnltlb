@@ -24,8 +24,8 @@ export default function Document() {
 
         <NextScript />
         <script defer src="app/js/jquery.min.js"></script>
-        {/* <script defer src="app/js/swiper-bundle.min.js"></script>
-        <script defer src="app/js/swiper.js"></script> */}
+        <script defer src="app/js/swiper-bundle.min.js"></script>
+        <script defer src="app/js/swiper.js"></script>
         {/* <script defer src="app/js/app.js"></script> */}
         {/* <script defer src="app/js/aos.js"></script> */}
 
