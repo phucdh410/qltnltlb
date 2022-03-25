@@ -135,17 +135,20 @@ export const topics = [
   {
     id: 1,
     label: "Hành trình theo chân Bác",
-    image: topic1.src,
+    // image: topic1.src,
+    image: "https://picsum.photos/492/390",
   },
   {
     id: 2,
     label: "Văn hóa, nghệ thuật Hồ Chí Minh",
-    image: topic2.src,
+    // image: topic2.src,
+    image: "https://picsum.photos/492/390",
   },
   {
     id: 3,
     label: "Học tập và làm theo lời Bác",
-    image: topic3.src,
+    // image: topic3.src,
+    image: "https://picsum.photos/492/390",
   },
   {
     id: 4,

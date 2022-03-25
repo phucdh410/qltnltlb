@@ -4,8 +4,16 @@ export default function Document() {
   return (
     <Html>
       <Head>
-        <link rel="preload" href="/assets/fonts/UTMDinhTran.ttf" />
-        <link rel="preload" href="/assets/fonts/OpenSans-ExtraBold.ttf" />
+        <link
+          rel="preload"
+          href="/assets/fonts/UTMDinhTran.ttf"
+          type="font/ttf"
+        />
+        <link
+          rel="preload"
+          href="/assets/fonts/OpenSans-ExtraBold.ttf"
+          type="font/ttf"
+        />
         <link
           href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
           rel="stylesheet"
