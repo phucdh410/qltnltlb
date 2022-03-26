@@ -1,13 +1,18 @@
 import React, { useState, useEffect, useCallback } from "react";
+import { GetDimension } from "utils/func";
+import { LeftArrowIcon, RightArrowIcon } from "../";
+import { ReadMoreButton } from "common/components/control";
+import PropTypes from "prop-types";
 import Slider from "react-slick";
-import { GetDimension } from "../../../../utils/func";
 
-const ImageSlider = ({ blogs }) => {
+const ImageSlider = ({ description, blogs, title, url }) => {
   const [settings, setSettings] = useState({
     infinite: true,
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 4,
+    prevArrow: <LeftArrowIcon />,
+    nextArrow: <RightArrowIcon />,
   });
 
   //Thay đổi số slide hiển thị dựa theo currentWidth / (breakpoint)
@@ -46,7 +51,19 @@ const ImageSlider = ({ blogs }) => {
       className="row justify-content-center slider-container"
       data-aos="fade-up"
     >
-      <div className="col-10 mx-auto">
+      <div className="col-11 mx-auto" style={{ marginTop: "30px" }}>
+        <div className="row align-items-center" data-aos="fade-up">
+          <div className="col-8 col-lg-10">
+            <div className="primary-title">
+              {description === "" && <p>{title}</p>}
+            </div>
+          </div>
+          <div className="col-4 col-lg-2">
+            <ReadMoreButton url={url} />
+          </div>
+        </div>
+      </div>
+      <div className="col-11 mx-auto">
         <Slider {...settings} className="row image-slider">
           {blogs &&
             blogs.length > 0 &&
@@ -62,3 +79,12 @@ const ImageSlider = ({ blogs }) => {
 };
 
 export default ImageSlider;
+
+ImageSlider.propTypes = {
+  description: PropTypes.string,
+  title: PropTypes.string,
+};
+ImageSlider.defaultProps = {
+  description: "",
+  title: "Title Example",
+};

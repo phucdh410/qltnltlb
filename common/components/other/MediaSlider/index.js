@@ -1,14 +1,18 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { YoutubeEmbed } from "../../../../common/components/other/";
 import Slider from "react-slick";
-import { GetDimension } from "../../../../utils/func";
+import { GetDimension } from "utils/func";
+import { ReadMoreButton } from "common/components/control";
+import PropTypes from "prop-types";
+import { LeftArrowIcon, RightArrowIcon, YoutubeEmbed } from "../";
 
-const MediaSlider = ({ blogs }) => {
+const MediaSlider = ({ description, blogs, title, url }) => {
   const [settings, setSettings] = useState({
     infinity: true,
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 2,
+    prevArrow: <LeftArrowIcon />,
+    nextArrow: <RightArrowIcon />,
   });
 
   const handleResize = useCallback((window) => {
@@ -40,6 +44,18 @@ const MediaSlider = ({ blogs }) => {
 
   return (
     <div className="row slider-container" data-aos="fade-up">
+      <div className="col-11 mx-auto" style={{ marginTop: "30px" }}>
+        <div className="row align-items-center" data-aos="fade-up">
+          <div className="col-8 col-lg-10">
+            <div className="primary-title">
+              {description === "" && <p>{title}</p>}
+            </div>
+          </div>
+          <div className="col-4 col-lg-2">
+            <ReadMoreButton url={url} />
+          </div>
+        </div>
+      </div>
       <div className="col-12">
         <Slider {...settings} className="media-slider">
           {blogs.map((blog) => (
@@ -57,3 +73,11 @@ const MediaSlider = ({ blogs }) => {
 };
 
 export default MediaSlider;
+MediaSlider.propTypes = {
+  description: PropTypes.string,
+  title: PropTypes.string,
+};
+MediaSlider.defaultProps = {
+  description: "",
+  title: "Title Example",
+};

@@ -1,3 +1,17 @@
 .slider-container {
   background: $color-bg-slider;
+  .slick-prev,
+  .slick-next {
+    &:before {
+      content: "";
+    }
+    background-position: center;
+    background-size: cover;
+  }
+  .slick-prev {
+    background-image: url(/assets/images/icon/Left.svg);
+  }
+  .slick-next {
+    background-image: url(/assets/images/icon/Right.svg);
+  }
 }

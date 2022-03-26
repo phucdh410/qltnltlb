@@ -1,9 +1,4 @@
 .image-slider {
-  @include imageSlider("mobile");
-  @include imageSlider("tablet");
-  @include imageSlider("smallLaptop");
-  @include imageSlider("mediumLaptop");
-  @include imageSlider("bigLaptop");
   .slick-slide {
     .image-item {
       img {
@@ -12,12 +7,80 @@
       }
     }
   }
-  .slick-prev,
-  .slick-next {
-    height: 40px;
-    width: 40px;
-    &:before {
-      font-size: 40px;
+
+  @include breakpoint("mobile") {
+    margin: 6px 26px 20px;
+    padding: 0 40px;
+    .slick-slide {
+      .image-item {
+        padding: 20px;
+        img {
+          border-radius: 16px;
+          box-shadow: 6.27497px 4.5499px 5.6874px rgb(229 91 230 / 50%);
+        }
+      }
+    }
+    .slick-prev,
+    .slick-next {
+      height: 34px;
+      width: 34px;
+    }
+  }
+  @include breakpoint("tablet") {
+    margin: 20px 30px;
+    padding: 0 60px;
+    .slick-slide {
+      .image-item {
+        padding: 26px;
+        img {
+          border-radius: 22px;
+          box-shadow: 8.27497px 6.5499px 14.6874px rgb(229 91 230 / 50%);
+        }
+      }
+    }
+    .slick-prev,
+    .slick-next {
+      height: 40px;
+      width: 40px;
+    }
+  }
+  @include breakpoint("smallLaptop") {
+    margin: 30px;
+    padding: 0 50px;
+    .slick-slide {
+      .image-item {
+        img {
+          border-radius: 30px;
+        }
+      }
+    }
+  }
+  @include breakpoint("mediumLaptop") {
+    margin: 10px 40px 40px;
+    padding: 0 70px;
+
+    .slick-prev,
+    .slick-next {
+      height: 50px;
+      width: 50px;
+    }
+  }
+  @include breakpoint("bigLaptop") {
+    margin: 20px 40px 40px;
+    padding: 0 70px;
+    .slick-slide {
+      .image-item {
+        padding: 20px;
+        img {
+          border-radius: 35px;
+          box-shadow: 8.27497px 16.5499px 20.6874px rgba(229, 91, 230, 0.5);
+        }
+      }
+    }
+    .slick-prev,
+    .slick-next {
+      height: 60px;
+      width: 60px;
     }
   }
 }

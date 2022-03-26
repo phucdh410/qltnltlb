@@ -1,13 +1,8 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper";
-import { Card, CardActionArea } from "@mui/material";
+import { Card } from "@mui/material";
 import Slider from "react-slick";
-import { GetDimension } from "../../../utils/func";
-import {
-  LeftArrowIcon,
-  RightArrowIcon,
-} from "../../../common/components/other";
+import { GetDimension } from "utils/func";
+import { LeftArrowIcon, RightArrowIcon } from "common/components/other";
 
 const Diaries = ({ diaries }) => {
   const [settings, setSettings] = useState({

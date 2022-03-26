@@ -40,7 +40,11 @@ const Topics = ({ topics }) => {
   });
 
   return (
-    <div className="container-fluid px-5">
+    <div
+      className="container-fluid px-5"
+      data-aos="fade-up"
+      data-aos-offset="30"
+    >
       <div className="row">
         <div className="col-10 col-sm-10 col-md-5 col-lg-8 col-xl-8 col-xxl-10 mx-auto">
           <div className="swiper-box">

@@ -13,7 +13,10 @@ const RelatedBlog = () => {
       <div className="col-12">
         <div className="row">
           {a.map((e, i) => (
-            <div key={e} className={`col-lg-4 ${styles.related__blog__item}`}>
+            <div
+              key={e}
+              className={`col-12 col-lg-6 col-xl-4 ${styles.related__blog__item}`}
+            >
               <div className={styles.related__blog__image}>
                 <img src="https://picsum.photos/435/336" alt="image" />
               </div>

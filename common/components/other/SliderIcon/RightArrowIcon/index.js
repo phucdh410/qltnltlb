@@ -3,7 +3,7 @@ import React from "react";
 const RightArrowIcon = ({ className, style, onClick }) => {
   return (
     <button className={className} style={style} onClick={onClick}>
-      <svg
+      {/* <svg
         width="80"
         height="81"
         viewBox="0 0 80 81"
@@ -18,7 +18,7 @@ const RightArrowIcon = ({ className, style, onClick }) => {
           d="M30.9667 53.2826L43.9 40.3493L30.9667 27.416C29.6667 26.116 29.6667 24.016 30.9667 22.716C32.2667 21.416 34.3667 21.416 35.6667 22.716L50.9667 38.016C52.2667 39.316 52.2667 41.416 50.9667 42.716L35.6667 58.016C34.3667 59.316 32.2667 59.316 30.9667 58.016C29.7 56.716 29.6667 54.5826 30.9667 53.2826Z"
           fill="#A000A2"
         />
-      </svg>
+      </svg> */}
     </button>
   );
 };

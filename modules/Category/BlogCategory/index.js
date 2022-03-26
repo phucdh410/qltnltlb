@@ -7,7 +7,8 @@ import {
   MediaSlider,
 } from "common/components/other";
 
-const NhungTacPhamCuaBac = ({ blogCategory }) => {
+const BlogCategory = ({ blogCategory }) => {
+  console.log(blogCategory.link);
   return (
     <div className="section-wrap">
       <div className="container-fluid">
@@ -17,12 +18,15 @@ const NhungTacPhamCuaBac = ({ blogCategory }) => {
               <div className="col-8 col-lg-10">
                 <div className="primary-title">
                   {blogCategory.description !== "" && (
-                    <p>3.1 Những tác phẩm của Bác</p>
+                    <p>{blogCategory.title}</p>
                   )}
+                  {blogCategory.type === 0 && <p>{blogCategory.title}</p>}
                 </div>
               </div>
               <div className="col-4 col-lg-2">
-                {blogCategory.type === 0 && <ReadMoreButton />}
+                {blogCategory.type === 0 && (
+                  <ReadMoreButton url={blogCategory.link} />
+                )}
               </div>
               {blogCategory.description !== "" && (
                 <About description={blogCategory.description} />
@@ -35,12 +39,16 @@ const NhungTacPhamCuaBac = ({ blogCategory }) => {
           <ImageSlider
             blogs={blogCategory.blogs}
             description={blogCategory.description}
+            title={blogCategory.title}
+            url={blogCategory.link}
           />
         )}
         {blogCategory.type === 2 && (
           <MediaSlider
             blogs={blogCategory.blogs}
             description={blogCategory.description}
+            title={blogCategory.title}
+            url={blogCategory.link}
           />
         )}
       </div>
@@ -48,4 +56,4 @@ const NhungTacPhamCuaBac = ({ blogCategory }) => {
   );
 };
 
-export default NhungTacPhamCuaBac;
+export default BlogCategory;

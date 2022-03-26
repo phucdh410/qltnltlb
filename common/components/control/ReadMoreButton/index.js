@@ -14,7 +14,7 @@ const NewButton = styled(Button)(({ theme }) => ({
   lineHeight: "28px",
   letterSpacing: "0em",
   padding: "10px",
-
+  borderRadius: "unset",
   "&:hover": {
     background: theme.palette.color.pink,
   },

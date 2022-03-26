@@ -1,58 +1,80 @@
+.slider-container {
+  margin-bottom: 40px;
+}
 .media-slider {
-  margin: 40px;
-  padding: 0 70px;
-  .video-responsive {
-    overflow: hidden;
-    padding-bottom: 56.25%;
-    position: relative;
-    height: 0;
-    border-radius: 35px;
-    iframe {
-      left: 0;
-      top: 0;
-      height: 100%;
-      width: 100%;
-      position: absolute;
+  margin: 10px 60px;
+  padding: 0 60px;
+  .slick-slide {
+    padding: 30px;
+    .video-responsive {
+      border-radius: 35px;
+      overflow: hidden;
+      position: relative;
+      // padding-bottom: 56.25%;
+      // height: 0;
+      aspect-ratio: 16/9;
+      iframe {
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+      }
     }
   }
   .slick-prev,
   .slick-next {
-    height: 40px;
-    width: 40px;
-    &:before {
-      font-size: 40px;
-    }
+    height: 60px;
+    width: 60px;
   }
-  .slick-slide {
-    padding: 50px;
-  }
-}
-@media screen and(max-width:1441px) {
-  .media-slider {
-    .slick-slide {
-      padding: 10px 15px;
-    }
-  }
-}
-@media screen and(max-width:1025px) {
-  .media-slider {
-    margin: 30px 50px;
-    padding: 0 30px;
 
+  @include breakpoint("mobile") {
+    margin: 10px 20px;
+    padding: 0px 14px;
     .slick-slide {
-      padding: 20px;
+      padding: 10px;
+      .video-responsive {
+        border-radius: 16px;
+      }
+    }
+    .slick-prev,
+    .slick-next {
+      height: 30px;
+      width: 30px;
     }
   }
-}
-@media screen and(max-width:769px) {
-  .media-slider {
-    margin: 20px;
-    padding: 0 20px;
-    .video-responsive {
-      border-radius: 16px;
-    }
+  @include breakpoint("tablet") {
+    margin: 20px 70px;
+    padding: 0px 50px;
     .slick-slide {
       padding: 20px;
+      .video-responsive {
+        border-radius: 20px;
+      }
+    }
+    .slick-prev,
+    .slick-next {
+      height: 40px;
+      width: 40px;
+    }
+  }
+  @include breakpoint("smallLaptop") {
+  }
+  @include breakpoint("mediumLaptop") {
+  }
+  @include breakpoint("bigLaptop") {
+    margin: 10px 60px;
+    padding: 0 60px;
+    .slick-slide {
+      padding: 30px;
+      .video-responsive {
+        border-radius: 35px;
+      }
+    }
+    .slick-prev,
+    .slick-next {
+      height: 60px;
+      width: 60px;
     }
   }
 }

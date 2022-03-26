@@ -37,7 +37,7 @@ const TabItem = styled(Tab)(({ theme }) => ({
   minHeight: "unset",
   paddingTop: 0,
   paddingBottom: 0,
-  borderBottomLeftRadius: "10px",
+  // borderBottomLeftRadius: "10px",
   position: "relative",
   "&.Mui-selected": {
     marginLeft: "-1px",

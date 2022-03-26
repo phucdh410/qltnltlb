@@ -1,9 +1,24 @@
 .read-more-btn {
   float: right;
   margin-bottom: 12px;
-  @include readMoreButton("mobile");
-  @include readMoreButton("tablet");
-  @include readMoreButton("smallLaptop");
-  @include readMoreButton("mediumLaptop");
-  @include readMoreButton("bigLaptop");
+  @include breakpoint("mobile") {
+    font-size: 12px;
+    line-height: 20px;
+    padding: 8px 12px;
+  }
+  @include breakpoint("tablet") {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+  @include breakpoint("smallLaptop") {
+    font-size: 16px;
+    padding: 12px 20px;
+  }
+  @include breakpoint("mediumLaptop") {
+  }
+  @include breakpoint("bigLaptop") {
+    font-size: 24px;
+    line-height: 28px;
+    padding: 18px 30px;
+  }
 }

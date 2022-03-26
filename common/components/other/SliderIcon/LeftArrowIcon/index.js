@@ -1,7 +1,7 @@
 const LeftArrowIcon = ({ className, style, onClick }) => {
   return (
     <button className={className} style={style} onClick={onClick}>
-      <svg
+      {/* <svg
         width="80"
         height="81"
         viewBox="0 0 80 81"
@@ -16,7 +16,7 @@ const LeftArrowIcon = ({ className, style, onClick }) => {
           d="M49.0333 53.2826L36.1 40.3493L49.0333 27.416C50.3333 26.116 50.3333 24.016 49.0333 22.716C47.7333 21.416 45.6333 21.416 44.3333 22.716L29.0333 38.016C27.7333 39.316 27.7333 41.416 29.0333 42.716L44.3333 58.016C45.6333 59.316 47.7333 59.316 49.0333 58.016C50.3 56.716 50.3333 54.5826 49.0333 53.2826Z"
           fill="#A000A2"
         />
-      </svg>
+      </svg> */}
     </button>
   );
 };

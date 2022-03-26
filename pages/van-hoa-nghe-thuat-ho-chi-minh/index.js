@@ -8,6 +8,7 @@ import {
   SanKhauKichNoi,
   VietVeBacHo,
 } from "modules/Tmp/VHNTHCM";
+import { BlogCategory } from "modules/Category";
 
 const VHNTHCM = () => {
   return (
@@ -21,17 +22,20 @@ const VHNTHCM = () => {
       {/* Section Main Background */}
       <MainBackground />
 
-      {/* Section Những tác phẩm của Bác */}
-      <NhungTacPhamCuaBac blogCategory={blogCategory[1]} />
+      {blogCategory.map((category) => (
+        <BlogCategory key={category._id} blogCategory={category} />
+      ))}
+      {/* Section Những tác phẩm của Bác*/}
+      {/* <NhungTacPhamCuaBac blogCategory={blogCategory[1]} /> */}
 
       {/* Section Viết về Bác Hồ */}
-      <VietVeBacHo blogCategory={blogCategory[0]} />
+      {/* <VietVeBacHo blogCategory={blogCategory[0]} /> */}
 
       {/* Section Sân khấu kịch nói */}
-      <SanKhauKichNoi blogCategory={blogCategory[0]} />
+      {/* <SanKhauKichNoi blogCategory={blogCategory[0]} /> */}
 
       {/* Section Ca ngợi Bác Hồ kính yêu */}
-      <CaNgoiBacHoKinhYeu blogCategory={blogCategory[2]} />
+      {/* <CaNgoiBacHoKinhYeu blogCategory={blogCategory[2]} /> */}
     </div>
   );
 };
