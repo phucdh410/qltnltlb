@@ -19,23 +19,23 @@ const Banner = ({ banner }) => {
   };
 
   return (
-    <div className="section-wrap banner" data-aos="fade-up">
+    <div className="section-wrap banner">
       <div className="container-fluid">
         <div className="row">
-          <div className="col-12 col-sm-12 col-md-12 px-0">
-            <div className="banner-container">
-              <img
-                className="banner-img"
-                src={banner.image}
-                alt={banner.imageAlt}
+          <div className="col-12 px-0">
+            {/* <div className="banner-container"> */}
+            <img
+              className="banner-img"
+              src={banner.image}
+              alt={banner.imageAlt}
+            />
+            {withBtn && (
+              <BannerButton
+                label={banner.button}
+                onClick={() => onClick(banner)}
               />
-              {withBtn && (
-                <BannerButton
-                  label={banner.button}
-                  onClick={() => onClick(banner)}
-                />
-              )}
-            </div>
+            )}
+            {/* </div> */}
           </div>
         </div>
       </div>

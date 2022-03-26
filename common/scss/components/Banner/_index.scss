@@ -1,12 +1,14 @@
 .banner {
   // padding-top: 20px;
-  .banner-container {
-    position: relative;
-    .banner-img {
-      max-width: 100%;
-      width: 100%;
-      height: auto;
-    }
+  // .banner-container {
+  //   max-height: 630px;
+  //   position: relative;
+  // }
+  .banner-img {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    max-height: 630px;
   }
 }
 

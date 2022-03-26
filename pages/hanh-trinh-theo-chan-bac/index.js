@@ -10,21 +10,41 @@ const tagBanners = [
     id: 1,
     title: "Cuộc đời và hoạt động của Bác",
     image: "https://picsum.photos/828/436",
+    size: 6,
+    button: "",
+    link: "",
   },
   {
     id: 2,
     title: "Hình ảnh tư liệu về Bác",
     image: "https://picsum.photos/828/436",
+    size: 6,
+    button: "",
+    link: "",
   },
   {
     id: 3,
     title: "Những mẫu chuyện về Bác",
     image: "https://picsum.photos/828/436",
+    size: 6,
+    button: "",
+    link: "",
   },
   {
     id: 4,
     title: "Phim tư liệu về Bác",
     image: "https://picsum.photos/828/436",
+    size: 6,
+    button: "",
+    link: "",
+  },
+  {
+    id: 5,
+    title: "Địa danh lịch sử",
+    image: "https://picsum.photos/828/436",
+    size: 12,
+    button: "",
+    link: "",
   },
 ];
 
@@ -44,7 +64,7 @@ const HTTCB = () => {
       <TagBannerList tagBanners={tagBanners} />
 
       {/* Section Long Banner */}
-      <Banner />
+      {/* <Banner /> */}
     </div>
   );
 };

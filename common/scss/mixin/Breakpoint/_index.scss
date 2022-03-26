@@ -1,0 +1,27 @@
+@mixin breakpoint($breakpoint) {
+  @if $breakpoint == "bigLaptop" {
+    @media (min-width: 1600px) {
+      @content;
+    }
+  }
+  @if $breakpoint == "mediumLaptop" {
+    @media (min-width: 1440px) {
+      @content;
+    }
+  }
+  @if $breakpoint == "smallLaptop" {
+    @media (min-width: 1024px) {
+      @content;
+    }
+  }
+  @if $breakpoint == "tablet" {
+    @media (min-width: 768px) {
+      @content;
+    }
+  }
+  @if $breakpoint == "mobile" {
+    @media (min-width: 325px) {
+      @content;
+    }
+  }
+}
