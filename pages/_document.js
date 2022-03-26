@@ -18,7 +18,13 @@ export default function Document() {
           type="font/ttf"
           crossOrigin="anonymous"
         />
-
+        <link
+          rel="preload"
+          href="/assets/fonts/font-awesome.css"
+          as="style"
+          type="text/css"
+          crossOrigin="anonymous"
+        />
         <link
           href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
           rel="stylesheet"
@@ -26,7 +32,7 @@ export default function Document() {
           crossOrigin="anonymous"
         ></link>
         <script
-          rel="prefetch"
+          rel="preload"
           defer
           src="https://kit.fontawesome.com/0a09dca1f7.js"
           crossOrigin="anonymous"
@@ -42,7 +48,7 @@ export default function Document() {
         {/* <script defer src="app/js/app.js"></script> */}
         {/* <script defer src="app/js/aos.js"></script> */}
         <script
-          defer
+          async
           src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
           integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
           crossOrigin="anonymous"
