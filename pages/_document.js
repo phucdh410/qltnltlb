@@ -7,12 +7,16 @@ export default function Document() {
         <link
           rel="preload"
           href="/assets/fonts/UTMDinhTran.ttf"
+          as="font"
           type="font/ttf"
+          crossOrigin="anonymous"
         />
         <link
           rel="preload"
           href="/assets/fonts/OpenSans-ExtraBold.ttf"
+          as="font"
           type="font/ttf"
+          crossOrigin="anonymous"
         />
 
         <link
@@ -22,7 +26,7 @@ export default function Document() {
           crossOrigin="anonymous"
         ></link>
         <script
-          rel="preload"
+          rel="prefetch"
           defer
           src="https://kit.fontawesome.com/0a09dca1f7.js"
           crossOrigin="anonymous"
