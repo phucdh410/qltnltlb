@@ -135,35 +135,41 @@ export const topics = [
   {
     id: 1,
     label: "Hành trình theo chân Bác",
-    // image: topic1.src,
-    image: "https://picsum.photos/492/390",
+    image: topic1.src,
+    link: "/hanh-trinh-theo-chan-bac",
+    // image: "https://picsum.photos/492/390",
   },
   {
     id: 2,
     label: "Văn hóa, nghệ thuật Hồ Chí Minh",
-    // image: topic2.src,
-    image: "https://picsum.photos/492/390",
+    image: topic2.src,
+    link: "/van-hoa-nghe-thuat-ho-chi-minh",
+    // image: "https://picsum.photos/492/390",
   },
   {
     id: 3,
     label: "Học tập và làm theo lời Bác",
-    // image: topic3.src,
-    image: "https://picsum.photos/492/390",
+    image: topic3.src,
+    link: "/hoc-tap-va-lam-theo-loi-bac",
+    // image: "https://picsum.photos/492/390",
   },
   {
     id: 4,
     label: "Topic example 4",
     image: "https://picsum.photos/492/390",
+    link: "",
   },
   {
     id: 5,
     label: "Topic example 5",
     image: "https://picsum.photos/492/390",
+    link: "",
   },
   {
     id: 6,
     label: "Topic example 6",
     image: "https://picsum.photos/492/390",
+    link: "",
   },
 ];
 

@@ -1,7 +1,7 @@
-const GetDimension = (window) => {
+const getDimension = (window) => {
   return {
     x: window.innerWidth,
     y: window.innerHeight,
   };
 };
-export default GetDimension;
+export default getDimension;

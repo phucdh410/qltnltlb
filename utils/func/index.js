@@ -1,3 +1,3 @@
-import GetDimension from "./GetDimension/";
+import getDimension from "./getDimension";
 
-export { GetDimension };
+export { getDimension };

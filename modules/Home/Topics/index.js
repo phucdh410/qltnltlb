@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper";
+import Link from "next/link";
 // import Swiper and modules styles
 import "swiper/css";
 import "swiper/css/navigation";
@@ -40,11 +41,7 @@ const Topics = ({ topics }) => {
   });
 
   return (
-    <div
-      className="container-fluid px-5"
-      data-aos="fade-up"
-      data-aos-offset="30"
-    >
+    <div className="container-fluid" data-aos="fade-up" data-aos-offset="30">
       <div className="row">
         <div className="col-10 col-sm-10 col-md-5 col-lg-8 col-xl-8 col-xxl-10 mx-auto">
           <div className="swiper-box">
@@ -61,14 +58,16 @@ const Topics = ({ topics }) => {
               {topics.length > 0 &&
                 topics.map((topic, i) => (
                   <SwiperSlide key={i}>
-                    <div
-                      className="slide-item"
-                      style={{ backgroundImage: `url(${topic.image})` }}
-                    >
-                      <div className="slide-label">
-                        <p>{topic.label}</p>
+                    <Link href={topic.link} passHref>
+                      <div
+                        className="slide-item"
+                        style={{ backgroundImage: `url(${topic.image})` }}
+                      >
+                        <div className="slide-label">
+                          <p>{topic.label}</p>
+                        </div>
                       </div>
-                    </div>
+                    </Link>
                   </SwiperSlide>
                 ))}
             </Swiper>

@@ -12,9 +12,11 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 
 const ListBtn = styled(ListItemButton)(({ theme }) => ({
+  transition: "0.5s",
   "&.Mui-selected": {
     color: theme.palette.color.white,
     background: theme.palette.color.pink,
+    transform: "skewY(-4deg)",
     "&:hover": {
       background: theme.palette.color.pink,
     },

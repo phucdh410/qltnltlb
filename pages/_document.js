@@ -39,7 +39,7 @@ export default function Document() {
         {/* <script defer src="app/js/swiper-bundle.min.js"></script>
         <script defer src="app/js/swiper.js"></script> */}
         {/* <script defer src="app/js/app.js"></script> */}
-        {/* <script defer src="app/js/aos.js"></script> */}{" "}
+        {/* <script defer src="app/js/aos.js"></script> */}
         <script
           rel="preload"
           defer

@@ -4,6 +4,7 @@ import { Tabs, Tab, styled } from "@mui/material";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import axios from "axios";
+import { getAll } from "utils/axios";
 
 const TabsNav = styled(Tabs)(({ theme }) => ({
   height: "100%",
@@ -85,21 +86,15 @@ const topics = [
 ];
 
 const Navigation = () => {
-  // const [topics, setTopics] = useState([]);
+  const handleRequest = useCallback(() => {
+    console.log("Gọi Api");
+    const data = getAll("topic");
+    console.log(data);
+  }, []);
 
-  // const handleRequest = async () => {
-  //   const res = await axios.get(
-  //     "/v1/topics/getAll?cols=_id&sBy=sortOrder&sType=ASC&page=1&limit=10"
-  //   );
-  //   if (res.data) {
-  //     setTopics(res.data.data.data);
-  //   } else {
-  //     console.log("Không có danh sách topic");
-  //   }
-  // };
-  // useEffect(() => {
-  //   handleRequest();
-  // }, []);
+  useEffect(() => {
+    handleRequest();
+  }, []);
 
   const router = useRouter();
   const [value, setValue] = useState("/");

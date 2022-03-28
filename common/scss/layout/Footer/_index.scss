@@ -80,11 +80,175 @@
         }
       }
     }
-    @include fontSizeFooter("mobile");
-    @include fontSizeFooter("tablet");
-    @include fontSizeFooter("smallLaptop");
-    @include fontSizeFooter("mediumLaptop");
-    @include fontSizeFooter("bigLaptop");
+    @include breakpoint("mobile") {
+      .slogan {
+        .innghieng {
+          font-size: 36px;
+          line-height: 50px;
+        }
+        .tuoitre {
+          font-size: 12px;
+          line-height: 18px;
+          margin-bottom: 0;
+        }
+        .bac {
+          font-size: 34px;
+          line-height: 60px;
+        }
+      }
+      .contact {
+        .contact-title {
+          font-size: 13px;
+          line-height: 16px;
+          margin-bottom: 0.6rem;
+        }
+        .contact-list {
+          font-size: 16px;
+          line-height: 18px;
+          margin-bottom: 0.4rem;
+        }
+        .icon {
+          position: relative;
+          right: unset;
+          bottom: unset;
+          text-align: center;
+          margin-bottom: 15px;
+          .facebook,
+          .youtube {
+            height: 45px;
+            width: 45px;
+            svg {
+              font-size: 35px;
+            }
+          }
+        }
+      }
+    }
+    @include breakpoint("tablet") {
+      .slogan {
+        .innghieng {
+          font-size: 44px;
+          line-height: 60px;
+        }
+        .tuoitre {
+          font-size: 16px;
+          line-height: 20.7px;
+          margin-bottom: 0;
+        }
+        .bac {
+          font-size: 40px;
+          line-height: 78.02px;
+        }
+      }
+      .contact {
+        .contact-title {
+          font-size: 16px;
+          line-height: 20px;
+          margin-bottom: 0.6rem;
+        }
+        .contact-list {
+          font-size: 17px;
+          line-height: 20px;
+          margin-bottom: 0.4rem;
+        }
+        .icon {
+          text-align: unset;
+          margin-bottom: 0;
+          position: absolute;
+          right: 20px;
+          bottom: 10%;
+          .facebook,
+          .youtube {
+            height: 56px;
+            width: 56px;
+            svg {
+              font-size: 40px;
+            }
+          }
+        }
+      }
+    }
+    @include breakpoint("smallLaptop") {
+      .slogan {
+        .innghieng {
+          font-size: 44px;
+          line-height: 60px;
+        }
+        .tuoitre {
+          font-size: 16px;
+          line-height: 20.7px;
+          margin-bottom: 0;
+        }
+        .bac {
+          font-size: 40px;
+          line-height: 78.02px;
+        }
+      }
+      .contact {
+        .contact-title {
+          font-size: 16px;
+          line-height: 20px;
+          margin-bottom: 0.6rem;
+        }
+        .contact-list {
+          font-size: 17px;
+          line-height: 20px;
+          margin-bottom: 0.4rem;
+        }
+      }
+    }
+    @include breakpoint("mediumLaptop") {
+      .slogan {
+        .innghieng {
+          font-size: 55px;
+          line-height: 70px;
+        }
+        .tuoitre {
+          font-size: 18px;
+          line-height: 20.7px;
+        }
+        .bac {
+          font-size: 58px;
+          line-height: 78.02px;
+        }
+      }
+      .contact {
+        .contact-title {
+          font-size: 19px;
+          line-height: 25.6px;
+        }
+        .contact-list {
+          font-size: 18px;
+          line-height: 22px;
+        }
+      }
+    }
+    @include breakpoint("bigLaptop") {
+      .slogan {
+        .innghieng {
+          font-size: 60px;
+          line-height: 85.63px;
+        }
+        .tuoitre {
+          font-size: 18px;
+          line-height: 20.7px;
+        }
+        .bac {
+          font-size: 64px;
+          line-height: 78.02px;
+        }
+      }
+      .contact {
+        .contact-title {
+          font-size: 24px;
+          line-height: 27.6px;
+        }
+        .contact-list {
+          font-size: 20px;
+          line-height: 30px;
+        }
+      }
+    }
   }
   .copyright {
     background-color: $color-purple;

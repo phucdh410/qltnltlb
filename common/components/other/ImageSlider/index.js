@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { GetDimension } from "utils/func";
+import { getDimension } from "utils/func";
 import { LeftArrowIcon, RightArrowIcon } from "../";
 import { ReadMoreButton } from "common/components/control";
 import PropTypes from "prop-types";
@@ -17,8 +17,8 @@ const ImageSlider = ({ description, blogs, title, url }) => {
 
   //Thay đổi số slide hiển thị dựa theo currentWidth / (breakpoint)
   const handleResize = useCallback((window) => {
-    // Hàm GetDimension lấy ra height/width hiện tại của màn hình
-    const currentWidth = GetDimension(window).x;
+    // Hàm getDimension lấy ra height/width hiện tại của màn hình
+    const currentWidth = getDimension(window).x;
     switch (true) {
       case currentWidth >= 1440:
         setSettings({ ...settings, slidesToShow: 4, slidesToScroll: 4 });

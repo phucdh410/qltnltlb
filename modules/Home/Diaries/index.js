@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { Card } from "@mui/material";
 import Slider from "react-slick";
-import { GetDimension } from "utils/func";
+import { getDimension } from "utils/func";
 import { LeftArrowIcon, RightArrowIcon } from "common/components/other";
 
 const Diaries = ({ diaries }) => {
@@ -16,8 +16,8 @@ const Diaries = ({ diaries }) => {
 
   //Thay đổi số slide hiển thị dựa theo currentWidth / (breakpoint)
   const handleResize = useCallback((window) => {
-    // Hàm GetDimension lấy ra height/width hiện tại của màn hình
-    const currentWidth = GetDimension(window).x;
+    // Hàm getDimension lấy ra height/width hiện tại của màn hình
+    const currentWidth = getDimension(window).x;
     switch (true) {
       case currentWidth >= 1440:
         setSettings({ ...settings, slidesToShow: 2 });

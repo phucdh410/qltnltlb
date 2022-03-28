@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
 import Slider from "react-slick";
-import { GetDimension } from "utils/func";
+import { getDimension } from "utils/func";
 import { ReadMoreButton } from "common/components/control";
 import PropTypes from "prop-types";
 import { LeftArrowIcon, RightArrowIcon, YoutubeEmbed } from "../";
@@ -16,7 +16,7 @@ const MediaSlider = ({ description, blogs, title, url }) => {
   });
 
   const handleResize = useCallback((window) => {
-    const currentWidth = GetDimension(window).x;
+    const currentWidth = getDimension(window).x;
     switch (true) {
       case currentWidth >= 1440:
         setSettings({ ...settings, slidesToShow: 3, slidesToScroll: 2 });

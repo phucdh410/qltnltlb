@@ -1,6 +1,4 @@
 .swiper-box {
-  height: 750px;
-  margin-top: -350px;
   .swiper {
     width: 100%;
     height: 100%;
@@ -17,6 +15,7 @@
         height: calc(100% - 108px);
         width: 100%;
         background: #4526b1;
+        background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
         padding: 20px 25px;
@@ -42,12 +41,12 @@
       width: 10px;
       height: 10px;
       border-radius: 50%;
-      background: rgba(44, 233, 247, 0.42);
+      background: rgb(245 40 239 / 42%);
       margin: 0 13px !important;
       opacity: 1;
     }
     .swiper-pagination-bullet-active {
-      background: rgb(46, 235, 241);
+      background: rgb(245 40 239);
       position: relative;
       &:after {
         position: absolute;
@@ -56,23 +55,21 @@
         left: 50%;
         border-radius: 50%;
         content: "";
-        width: 24px;
-        height: 24px;
-        border: 2px solid #fd562a;
+        width: 20px;
+        height: 20px;
+        border: 2px solid #ad73f9;
         overflow: visible;
       }
     }
   }
-}
-@media screen and(min-width:0) {
-  .swiper-box {
+  @include breakpoint("mobile") {
     margin-top: -150px;
     height: 450px;
     .swiper {
       .swiper-slide {
         .slide-item {
-          margin-bottom: 70px;
-          height: calc(100% - 70px);
+          margin-bottom: 50px;
+          height: calc(100% - 50px);
           .slide-label p {
             font-size: 20px;
             line-height: 30px;
@@ -81,16 +78,24 @@
       }
     }
   }
-}
-@media screen and(min-width:768px) {
-  .swiper-box {
+  @include breakpoint("tablet") {
     margin-top: -190px;
   }
-}
-@media screen and(min-width:1440px) {
-  .swiper-box {
-    height: 560px;
-    margin-top: -280px;
+  @include breakpoint("smallLaptop") {
+    margin-top: -235px;
+    height: 460px;
+    .swiper {
+      .swiper-slide {
+        .slide-item {
+          margin-bottom: 70px;
+          height: calc(100% - 70px);
+        }
+      }
+    }
+  }
+  @include breakpoint("mediumLaptop") {
+    height: 530px;
+    margin-top: -260px;
     .swiper {
       .swiper-slide {
         .slide-item {
@@ -102,16 +107,14 @@
       }
     }
   }
-}
-@media screen and(min-width:1700px) {
-  .swiper-box {
-    height: 750px;
+  @include breakpoint("bigLaptop") {
+    height: 660px;
     margin-top: -350px;
     .swiper {
       .swiper-slide {
         .slide-item {
-          margin-bottom: 108px;
-          height: calc(100% - 108px);
+          margin-bottom: 80px;
+          height: calc(100% - 80px);
           .slide-label p {
             font-size: 36px;
             line-height: 45px;
@@ -121,3 +124,47 @@
     }
   }
 }
+
+// @media screen and(min-width:0) {
+//   .swiper-box {
+//     margin-top: -150px;
+//     height: 450px;
+//     .swiper {
+//       .swiper-slide {
+//         .slide-item {
+//           margin-bottom: 70px;
+//           height: calc(100% - 70px);
+//           .slide-label p {
+//             font-size: 20px;
+//             line-height: 30px;
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+// @media screen and(min-width:768px) {
+//   .swiper-box {
+//     margin-top: -190px;
+//   }
+// }
+// @media screen and(min-width:1440px) {
+//   .swiper-box {
+//     height: 560px;
+//     margin-top: -280px;
+//     .swiper {
+//       .swiper-slide {
+//         .slide-item {
+//           .slide-label p {
+//             font-size: 24px;
+//             line-height: 35px;
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+// @media screen and(min-width:1700px) {
+//   .swiper-box {
+//   }
+// }

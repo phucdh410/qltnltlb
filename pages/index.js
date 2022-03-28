@@ -2,10 +2,8 @@ import Head from "next/head";
 import { topics, diaries } from "mock/data";
 import { MainBackground } from "common/components/other/";
 import { Topics, Introduction, HotNews, Diaries } from "modules/Home";
-import { Checkbox } from "@mui/material";
 
 export default function Home() {
-  const label = { inputProps: { "aria-label": "Checkbox demo" } };
   return (
     <div>
       <Head>

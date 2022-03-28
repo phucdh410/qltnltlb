@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 
-const Custom404 = () => {
+const Page404 = () => {
   return (
     <div className="page404 section-wrap">
       <h1>404 Oops Nhầm Trang</h1>
@@ -24,4 +24,4 @@ const Custom404 = () => {
   );
 };
 
-export default Custom404;
+export default Page404;
