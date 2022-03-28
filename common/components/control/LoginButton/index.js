@@ -1,7 +1,9 @@
+import { useState } from "react";
 import { PropTypes } from "prop-types";
 import { AccountCircle } from "@mui/icons-material";
 import { Button, styled } from "@mui/material";
 import Link from "next/link";
+import { LoginModal } from "common/components/other";
 
 const LoginBtn = styled(Button)(({ theme }) => ({
   height: "100%",
@@ -29,16 +31,21 @@ const LoginBtn = styled(Button)(({ theme }) => ({
 }));
 
 const LoginButton = ({ label, className }) => {
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
   return (
-    <Link href="/login" passHref>
+    <>
       <LoginBtn
         className={className}
         disableRipple
         startIcon={<AccountCircle className="icon-login" />}
+        onClick={handleOpen}
       >
         {label}
       </LoginBtn>
-    </Link>
+      <LoginModal open={open} onClose={handleClose} />
+    </>
   );
 };
 
