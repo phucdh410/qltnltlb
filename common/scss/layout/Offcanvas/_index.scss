@@ -4,6 +4,9 @@
     overflow: hidden;
     background: $color-bg-gradient;
     border-left: unset;
+    .offcanvas-header {
+      padding-bottom: 0;
+    }
     .offcanvas-btn-close {
       color: red;
       transition: 0.5s ease-in-out;

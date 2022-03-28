@@ -1,4 +1,9 @@
 .my-form {
+  .todo-icon {
+    &.delete-able {
+      transform: rotate(45deg);
+    }
+  }
   @include form("mobile");
   @include form("tablet");
   @include form("smallLaptop");

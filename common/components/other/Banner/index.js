@@ -3,19 +3,21 @@ import PropTypes from "prop-types";
 import { useRouter } from "next/router";
 import { BannerButton } from "../../control";
 
-const Banner = ({ banner }) => {
+const Banner = ({ button, link, image, imageAlt }) => {
+  console.log(button);
+  console.log(link);
   const router = useRouter();
   const [withBtn, setWithBtn] = useState(false);
 
   useEffect(() => {
-    if (banner.button + banner.link !== "") {
+    if (button + link !== "") {
       setWithBtn(true);
     }
-  }, [banner]);
+  }, [button, link]);
 
-  const onClick = (banner) => {
+  const onClick = () => {
     //console.log(banner.link);
-    router.push(`${router.route}${banner.link}`);
+    router.push(`${router.route}${link}`);
   };
 
   return (
@@ -24,16 +26,9 @@ const Banner = ({ banner }) => {
         <div className="row">
           <div className="col-12 px-0">
             {/* <div className="banner-container"> */}
-            <img
-              className="banner-img"
-              src={banner.image}
-              alt={banner.imageAlt}
-            />
+            <img className="banner-img" src={image} alt={imageAlt} />
             {withBtn && (
-              <BannerButton
-                label={banner.button}
-                onClick={() => onClick(banner)}
-              />
+              <BannerButton label={button} onClick={() => onClick()} />
             )}
             {/* </div> */}
           </div>
@@ -46,13 +41,16 @@ const Banner = ({ banner }) => {
 export default Banner;
 
 Banner.propTypes = {
-  banner: PropTypes.object,
+  button: PropTypes.string,
+  link: PropTypes.string,
+  slug: PropTypes.string,
+  image: PropTypes.string,
+  imageAlt: PropTypes.strong,
 };
 Banner.defaultProps = {
-  banner: {
-    image: "https://picsum.photos/1920/627",
-    imageAlt: "image",
-    button: "",
-    link: "",
-  },
+  image: "https://picsum.photos/1920/627",
+  imageAlt: "image",
+  button: "",
+  link: "",
+  slug: "",
 };

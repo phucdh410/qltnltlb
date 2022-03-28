@@ -10,7 +10,7 @@ $fontAsap: "Asap", sans-serif;
 
 .login {
   overflow: hidden;
-  background-color: white;
+  background-color: #fb5bac;
   padding: 40px 30px 30px 30px;
   border-radius: 10px;
   position: absolute;
@@ -65,8 +65,9 @@ $fontAsap: "Asap", sans-serif;
     cursor: pointer;
     color: #fff;
     font-size: 16px;
+    font-weight: 700;
     text-transform: uppercase;
-    width: 80px;
+    width: 120px;
     border: 0;
     padding: 10px 0;
     margin-top: 10px;

@@ -5,11 +5,13 @@ import {
   BlogsGrid,
   ImageSlider,
   MediaSlider,
+  TagBannerList,
 } from "common/components/other";
 
 const BlogCategory = ({ blogCategory }) => {
-  console.log(blogCategory.link);
-  return (
+  return blogCategory.type === 3 ? (
+    <TagBannerList tagBanners={blogCategory.blogs} />
+  ) : (
     <div className="section-wrap">
       <div className="container-fluid">
         <div className="row">

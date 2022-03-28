@@ -1,33 +1,68 @@
 .pagination-bar-wrap {
   margin-top: 40px;
-}
-@media screen and(max-width:1440px) {
-  .pagination-bar-wrap {
-    .MuiPagination-ul {
-      .MuiPaginationItem-icon {
-        font-size: 2.5rem;
-      }
+
+  @include breakpoint("mobile") {
+    ul {
       .MuiPaginationItem-root {
-        font-size: 16px;
-        height: 40px;
-        min-width: 30px;
-        padding: 0px 20px;
+        font-size: 14px;
+        height: 30px;
+        min-width: 20px;
+        padding: 0 12px;
+        .MuiPaginationItem-icon {
+          font-size: 2rem;
+        }
       }
     }
   }
-}
-
-@media screen and(max-width:768px) {
-  .pagination-bar-wrap {
-    .MuiPagination-ul {
-      .MuiPaginationItem-icon {
-        font-size: 1.5rem;
-      }
+  @include breakpoint("tablet") {
+    ul {
       .MuiPaginationItem-root {
-        font-size: 15px;
-        height: 30px;
+        font-size: 16px;
+        height: 38px;
         min-width: 30px;
-        padding: 0px 14px;
+        padding: 0 20px;
+        .MuiPaginationItem-icon {
+          font-size: 2.2rem;
+        }
+      }
+    }
+  }
+  @include breakpoint("smallLaptop") {
+    ul {
+      .MuiPaginationItem-root {
+        font-size: 18px;
+        height: 40px;
+        min-width: 30px;
+        padding: 0 22px;
+        .MuiPaginationItem-icon {
+          font-size: 2.2rem;
+        }
+      }
+    }
+  }
+  @include breakpoint("mediumLaptop") {
+    ul {
+      .MuiPaginationItem-root {
+        font-size: 20px;
+        height: 42px;
+        min-width: 30px;
+        padding: 0 26px;
+        .MuiPaginationItem-icon {
+          font-size: 2.3rem;
+        }
+      }
+    }
+  }
+  @include breakpoint("bigLaptop") {
+    ul {
+      .MuiPaginationItem-root {
+        font-size: 24px;
+        height: 50px;
+        min-width: 50px;
+        padding: 0 34px;
+        .MuiPaginationItem-icon {
+          font-size: 2.5rem;
+        }
       }
     }
   }

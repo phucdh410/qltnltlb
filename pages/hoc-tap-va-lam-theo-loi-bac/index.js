@@ -1,33 +1,9 @@
 import React from "react";
 import Head from "next/head";
-import {
-  main_banner_with_button,
-  blogCategory,
-  banner_with_button,
-} from "mock/data";
-import {
-  Banner,
-  MainBackground,
-  TagBannerList,
-} from "common/components/other/";
-import {
-  HoatDongNoiBac,
-  LoiBacNamXua,
-  ThanhNienLamTheoLoiBac,
-} from "modules/Tmp/HTVLTLB";
+import { main_banner_with_button, blogCategory2 } from "mock/data";
+import { MainBackground } from "common/components/other/";
+import { BlogCategory } from "modules/Category";
 
-const tagBanners = [
-  {
-    id: 1,
-    title: "Văn bản chỉ đạo",
-    image: "https://picsum.photos/828/436",
-  },
-  {
-    id: 2,
-    title: "Chuyên đề học tập và làm theo lời Bác",
-    image: "https://picsum.photos/828/436",
-  },
-];
 const HTVLTLB = () => {
   return (
     <>
@@ -39,21 +15,9 @@ const HTVLTLB = () => {
 
       {/* Section main background */}
       <MainBackground banner={main_banner_with_button} />
-
-      {/* Section tag banner */}
-      <TagBannerList tagBanners={tagBanners} />
-
-      {/* Section hoạt động nổi bậc */}
-      <HoatDongNoiBac blogCategory={blogCategory[0]} />
-
-      {/* Section hoạt động nổi bậc */}
-      <LoiBacNamXua blogCategory={blogCategory[0]} />
-
-      {/* Section hoạt động nổi bậc */}
-      <ThanhNienLamTheoLoiBac blogCategory={blogCategory[0]} />
-
-      {/* Section banner */}
-      <Banner banner={banner_with_button} />
+      {blogCategory2.map((blogCategory) => (
+        <BlogCategory key={blogCategory._id} blogCategory={blogCategory} />
+      ))}
     </>
   );
 };

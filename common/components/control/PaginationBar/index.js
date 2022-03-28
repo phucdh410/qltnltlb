@@ -1,17 +1,11 @@
 import React from "react";
-import { InputLabel, Pagination, PaginationItem, styled } from "@mui/material";
-
-const PrevBtn = () => {
-  return <InputLabel sx={{ cursor: "pointer" }}>Prev</InputLabel>;
-};
-const NextBtn = () => {
-  return <InputLabel sx={{ cursor: "pointer" }}>Next</InputLabel>;
-};
+import { Pagination, PaginationItem, styled } from "@mui/material";
 
 const NewPagination = styled(Pagination)(({ theme }) => ({
   textAlign: "center",
   "& .MuiPagination-ul": {
     display: "inline-flex",
+    flexWrap: "nowrap",
     border: "1px solid #A000A2",
     borderRadius: "13px",
     "& .MuiPaginationItem-icon": {
@@ -20,14 +14,10 @@ const NewPagination = styled(Pagination)(({ theme }) => ({
     "& .MuiPaginationItem-root": {
       color: theme.palette.color.darkPurple,
       fontWeight: 400,
-      fontSize: "24px",
       display: "flex",
       justifyContent: "center",
       margin: 0,
       borderRadius: "unset",
-      height: "50px",
-      minWidth: "50px",
-      padding: "0 34px",
       "&.Mui-selected": {
         backgroundColor: theme.palette.color.purple,
         color: theme.palette.color.white,

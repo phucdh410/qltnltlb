@@ -10,6 +10,7 @@ import {
 import FireIcon from "../../other/FireIcon/";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import SubLoginButton from "./SubLoginButton";
 
 const ListBtn = styled(ListItemButton)(({ theme }) => ({
   transition: "0.5s",
@@ -61,6 +62,7 @@ const Subnav = () => {
 
   return (
     <Box sx={{ width: "100%" }}>
+      <SubLoginButton />
       <List component="nav">
         <Link href="/" passHref={true}>
           <ListBtn
@@ -68,6 +70,16 @@ const Subnav = () => {
             onClick={(event) => handleListItemClick(event, 0)}
           >
             <ListIcon>{selectedIndex === 0 && <FireIcon />}</ListIcon>
+            <ListText primary="Trang chủ" />
+          </ListBtn>
+        </Link>
+
+        <Link href="#" passHref={true}>
+          <ListBtn
+            selected={selectedIndex === 404}
+            onClick={(event) => handleListItemClick(event, 101)}
+          >
+            <ListIcon>{selectedIndex === 404 && <FireIcon />}</ListIcon>
             <ListText primary="Giới thiệu" />
           </ListBtn>
         </Link>

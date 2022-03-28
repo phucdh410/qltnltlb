@@ -2,7 +2,7 @@ import React from "react";
 
 const BannerDefault = () => {
   return (
-    <div className="container-fluid px-0 banner-default">
+    <div className="container-fluid banner-default">
       <div className="row" style={{ height: "100%", alignItems: "center" }}>
         <div className="col-11 mx-auto">
           <div className="container-fluid">

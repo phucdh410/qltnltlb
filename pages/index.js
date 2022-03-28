@@ -5,11 +5,11 @@ import { MainBackground } from "common/components/other/";
 import { Topics, Introduction, HotNews, Diaries } from "modules/Home";
 import { getAll } from "utils/axios";
 
-export async function getServerSideProps() {
-  const res = await getAll("topics");
-  const data = res.data.data;
-  return { props: { data } };
-}
+// export async function getServerSideProps() {
+//   const res = await getAll("topics");
+//   const data = res.data.data;
+//   return { props: { data } };
+// }
 
 export default function Home({ data }) {
   // const [topics, setTopics] = useState([]);

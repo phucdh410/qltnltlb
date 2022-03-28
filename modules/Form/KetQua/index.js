@@ -12,7 +12,7 @@ import {
   TodoItem,
 } from "../components";
 
-const todoList = [
+const todoListDemo = [
   {
     id: "id_1",
     status: 0,
@@ -33,10 +33,23 @@ const todoList = [
 const KetQua = ({ student }) => {
   const { fullname, major, student_code } = student;
   const [todoList, setTodoList] = useState([{ finish: false }]);
-  const onClick = () => {
-    setTodoList([...todoList, {}]);
+  const onClick = (index) => {
+    if (index === 1 || index === 2) {
+      const deletedList = todoList.filter((e, i) => i !== index);
+      setTodoList(deletedList);
+    } else {
+      if (todoList.length < 3) {
+        setTodoList([...todoList, {}]);
+      } else {
+        alert("Số lượng phần việc tối đa là 3");
+      }
+    }
   };
   const finalResult = todoList.reduce(
+    (prev, cur) => (cur.finish === true ? ++prev : prev),
+    0
+  );
+  const finalResultDemo = todoListDemo.reduce(
     (prev, cur) => (cur.finish === true ? ++prev : prev),
     0
   );
@@ -64,13 +77,19 @@ const KetQua = ({ student }) => {
       <TextInput label="Đơn vị" defaultValue={major} readOnly={true} />
       <TextInput label="MSSV" defaultValue={student_code} readOnly={true} />
 
-      {todoList.map((todoItem, index) => (
-        <TodoItem key={index} index={index} onClick={onClick} formType={2} />
+      {todoListDemo.map((todoItem, index) => (
+        <TodoItem
+          key={index}
+          index={index}
+          onClick={() => onClick(index)}
+          formType={2}
+          status={todoItem.status}
+        />
       ))}
       <FormItem>
         <div className="col-12">
           <Label className="form-label" sx={{ color: "#797A7E" }}>
-            {`Đã hoàn thành ${finalResult} / ${todoList.length} phần việc đã đăng ký`}
+            {`Đã hoàn thành ${finalResultDemo} / ${todoListDemo.length} phần việc đã đăng ký`}
           </Label>
         </div>
       </FormItem>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { styled, Typography, Box } from "@mui/material";
 import PropTypes from "prop-types";
 import { DropdownInput, MultilineInput, UploadInput, Result } from "../index";
@@ -25,7 +25,7 @@ export const TodoLabel = styled(Typography)(({ theme }) => ({
 
 const TodoItem = ({ index, formType, status, onClick }) => {
   let number = "";
-  const text = ["nhất", "hai", "ba", "tư", "năm", "sáu", "bảy", "tám", "chín"];
+  const text = ["nhất", "hai", "ba"];
   for (var i = 0; i < text.length; i++) {
     if (index === i) {
       number = text[i];
@@ -42,7 +42,7 @@ const TodoItem = ({ index, formType, status, onClick }) => {
         <div className="col-2" style={{ textAlign: "right" }}>
           <svg
             onClick={onClick}
-            className="todo-icon"
+            className={`todo-icon ${index !== 0 && "delete-able"}`}
             viewBox="0 0 42 42"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
