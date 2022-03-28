@@ -1,4 +1,5 @@
 import axios from "axios";
+import { headers } from "next.config";
 
 let source = axios.CancelToken.source();
 
@@ -15,14 +16,12 @@ export const cancel = async () => {
 };
 
 // Request api: method = get
-const getAll = async (slug, page = 1, limit = 5) => {
+const getAll = async (slug, page = 1, limit = 5, options = { headers }) => {
   try {
-    console.log("Gọi hàm");
     const res = await axios.get(
       `/v1/${slug}/getAll?cols=_id&sBy=sortOrder&sType=ASC&page=${page}&limit=${limit}`,
       { ...options, cancelToken: source.token }
     );
-    console.log(res.data);
     return res.data;
   } catch (err) {
     if (err?.response?.status === 401)

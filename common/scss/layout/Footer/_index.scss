@@ -68,7 +68,8 @@
         .youtube {
           color: $color-white;
           margin-right: 10px;
-          svg {
+          svg,
+          i {
             font-size: 40px;
           }
         }
@@ -117,7 +118,8 @@
           .youtube {
             height: 45px;
             width: 45px;
-            svg {
+            svg,
+            i {
               font-size: 35px;
             }
           }
@@ -161,7 +163,8 @@
           .youtube {
             height: 56px;
             width: 56px;
-            svg {
+            svg,
+            i {
               font-size: 40px;
             }
           }

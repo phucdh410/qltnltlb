@@ -1,9 +1,25 @@
+import { useEffect, useState } from "react";
 import Head from "next/head";
 import { topics, diaries } from "mock/data";
 import { MainBackground } from "common/components/other/";
 import { Topics, Introduction, HotNews, Diaries } from "modules/Home";
+import { getAll } from "utils/axios";
 
-export default function Home() {
+export async function getServerSideProps() {
+  const res = await getAll("topics");
+  const data = res.data.data;
+  return { props: { data } };
+}
+
+export default function Home({ data }) {
+  // const [topics, setTopics] = useState([]);
+
+  // useEffect(() => {
+  //   if (data) {
+  //     setTopics(data);
+  //   }
+  // });
+
   return (
     <div>
       <Head>

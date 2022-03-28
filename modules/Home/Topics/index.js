@@ -58,13 +58,13 @@ const Topics = ({ topics }) => {
               {topics.length > 0 &&
                 topics.map((topic, i) => (
                   <SwiperSlide key={i}>
-                    <Link href={topic.link} passHref>
+                    <Link href={topic.slug} passHref>
                       <div
                         className="slide-item"
                         style={{ backgroundImage: `url(${topic.image})` }}
                       >
                         <div className="slide-label">
-                          <p>{topic.label}</p>
+                          <p>{topic.name}</p>
                         </div>
                       </div>
                     </Link>

@@ -4,7 +4,6 @@ import { Tabs, Tab, styled } from "@mui/material";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import axios from "axios";
-import { getAll } from "utils/axios";
 
 const TabsNav = styled(Tabs)(({ theme }) => ({
   height: "100%",
@@ -86,16 +85,6 @@ const topics = [
 ];
 
 const Navigation = () => {
-  const handleRequest = useCallback(() => {
-    console.log("Gọi Api");
-    const data = getAll("topic");
-    console.log(data);
-  }, []);
-
-  useEffect(() => {
-    handleRequest();
-  }, []);
-
   const router = useRouter();
   const [value, setValue] = useState("/");
 
