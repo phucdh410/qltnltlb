@@ -1,18 +1,105 @@
-import React from "react";
-import { Modal } from "@mui/material";
+import React, { useCallback, useState } from "react";
+import axios from "axios";
+import { Button, Modal } from "@mui/material";
+import * as yup from "yup";
+import { useFormik } from "formik";
+import { TextField } from "@mui/material";
+import { makeStyles } from "@mui/styles";
+import { onLogin } from "utils/axios/auth";
+import { toast } from "react-toastify";
+
+const useStyles = makeStyles((theme) => ({
+  LoginInput: {
+    width: "100%",
+    fontSize: "20px",
+    marginBottom: "20px",
+    "& .MuiInputLabel-root": {
+      fontSize: "inherit",
+    },
+    "& .MuiOutlinedInput-root": {
+      background: theme.palette.color.white,
+      fontSize: "inherit",
+    },
+    "& .MuiFormHelperText-root.Mui-error": {
+      color: "red",
+    },
+  },
+}));
+const validationSchema = yup.object({
+  username: yup
+    .string("Vui lòng nhập vào tên đăng nhập")
+    .required("Vui lòng nhập vào tên đăng nhập")
+    .min(5, "Tên đăng nhập không hợp lệ"),
+  password: yup
+    .string("Vui lòng nhập vào mật khẩu")
+    .required("Vui lòng nhập vào mật khẩu"),
+});
+
+let source = axios.CancelToken.source;
 
 const LoginModal = ({ open, onClose }) => {
-  const onClick = (e) => {
-    e.preventDefault();
-    console.log("Login");
-  };
+  const classes = useStyles();
+  const [loading, setLoading] = useState(false);
+  // Account test
+  // username: "admin"
+  // password: "827ccb0eea8a706c4c34a16891f84e7b"
+  // fcmToken: "12345"
+  const handleLogin = useCallback(async (values) => {
+    setLoading(true);
+    const params = { ...values, fcmToken: "12345" };
+    const response = await onLogin(params, source);
+    if (response === false) {
+      formik.setErrors({
+        username: "Sai tên đăng nhập hoặc mật khẩu",
+        password: "Sai tên đăng nhập hoặc mật khẩu",
+      });
+    } else {
+      toast.success("Đăng nhập thành công");
+      onClose();
+    }
+    setLoading(false);
+  }, []);
+
+  const formik = useFormik({
+    initialValues: {
+      username: "",
+      password: "",
+    },
+    validationSchema,
+    onSubmit: () => handleLogin(formik.values),
+    onChange: () => setWrongAcc(false),
+  });
   return (
     <Modal open={open} onClose={onClose}>
-      <form className="login">
-        <input type="text" placeholder="Tên đăng nhập" />
-        <input type="password" placeholder="Mật khẩu" />
+      <form onSubmit={formik.handleSubmit} className="login">
+        <TextField
+          type="text"
+          label="Tên đăng nhập"
+          id="username"
+          name="username"
+          className={classes.LoginInput}
+          value={formik.values.username}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          error={formik.touched.username && Boolean(formik.errors.username)}
+          helperText={formik.touched.username && formik.errors.username}
+        />
+        <TextField
+          type="password"
+          label="Mật khẩu"
+          id="password"
+          name="password"
+          className={classes.LoginInput}
+          value={formik.values.password}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          error={formik.touched.password && Boolean(formik.errors.password)}
+          helperText={formik.touched.password && formik.errors.password}
+        />
 
-        <button onClick={onClick}>Đăng nhập</button>
+        <Button disabled={loading} type="submit">
+          Đăng nhập
+        </Button>
       </form>
     </Modal>
   );

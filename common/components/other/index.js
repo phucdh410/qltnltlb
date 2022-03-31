@@ -1,29 +1,24 @@
 import About from "./About";
 import Banner from "./Banner/";
 import BannerDefault from "./BannerDefault";
-import BlogsGrid from "./BlogsGrid";
 import ChiTietKyYeu from "./ChiTietKyYeu";
 import DanhSachKyYeu from "./DanhSachKyYeu";
 import FireIcon from "./FireIcon/";
-import ImageSlider from "./ImageSlider";
 import LeftArrowIcon from "./SliderIcon/LeftArrowIcon";
 import LoginModal from "./LoginModal";
 import MainBackground from "./MainBackground/";
 import MainPost from "./MainPost";
-import MediaSlider from "./MediaSlider";
 import Post from "./Post";
 import RightArrowIcon from "./SliderIcon/RightArrowIcon";
 import ScrollTop from "./ScrollTop/";
 import StudentCard from "./Student/StudentCard/";
-import TagBannerList from "./TagBannerList/";
-import YoutubeEmbed from "./YoutubeEmbed";
+import SuspenseLoading from "./SuspenseLoading";
 
 export {
   // Banner & Background
   MainBackground,
   BannerDefault,
   Banner,
-  TagBannerList,
   // Info
   About,
   StudentCard,
@@ -33,13 +28,10 @@ export {
   // Data Display
   MainPost,
   Post,
-  BlogsGrid,
   LeftArrowIcon,
   RightArrowIcon,
-  ImageSlider,
-  YoutubeEmbed,
-  MediaSlider,
   DanhSachKyYeu,
   ChiTietKyYeu,
   LoginModal,
+  SuspenseLoading,
 };

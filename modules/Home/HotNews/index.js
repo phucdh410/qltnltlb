@@ -8,9 +8,6 @@ const ReadMoreBtn = styled(Button)(({ theme }) => ({
   background: theme.palette.color.pink,
   color: theme.palette.color.white,
   fontWeight: 700,
-  fontSize: "32px",
-  lineHeight: "45px",
-  padding: "32px 69px",
   "&:hover": {
     background: theme.palette.color.pink,
   },
@@ -21,7 +18,7 @@ const HotNews = () => {
     <div className="section-wrap hot-news" data-aos="fade-up">
       <div className="container-fluid">
         <div className="row">
-          <div className="col-12 col-md-9 col-lg-11 col-xxl-11 mx-auto">
+          <div className="col-12 col-md-11 mx-auto">
             <Swiper
               navigation={true}
               modules={[Navigation]}
@@ -29,11 +26,11 @@ const HotNews = () => {
               className="swiper-hot-news"
             >
               <SwiperSlide>
-                <div className="swiper-news-item container">
-                  <div className="col-8 col-md-9 col-lg-8 col-xl-10 col-xxl-8 news-image">
+                <div className="swiper-news-item row">
+                  <div className="col-9 col-md-9 col-lg-8 col-xl-8 col-xxl-7 news-image">
                     <img src="https://picsum.photos/968/500" alt="picture" />
                   </div>
-                  <div className="col-10 col-md-10 col-lg-9 col-xl-11 col-xxl-9 news-label">
+                  <div className="col-10 col-md-9 col-lg-9 col-xl-8 col-xxl-7 news-label">
                     <p>
                       Vòng chung kết Hội thi Olympic các môn khoa học Mác - Lê
                       nin và tư tưởng Hồ Chí Minh năm 2019

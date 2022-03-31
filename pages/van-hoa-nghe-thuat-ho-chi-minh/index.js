@@ -1,14 +1,33 @@
 import Head from "next/head";
+import dynamic from "next/dynamic";
 import React from "react";
-import { MainBackground } from "common/components/other";
+import { MainBackground, SuspenseLoading } from "common/components/other";
 import { blogCategory } from "mock/data";
-import {
-  CaNgoiBacHoKinhYeu,
-  NhungTacPhamCuaBac,
-  SanKhauKichNoi,
-  VietVeBacHo,
-} from "modules/Tmp/VHNTHCM";
-import { BlogCategory } from "modules/Category";
+import { BlogCategory, CategoryTypeBanner } from "modules/Category";
+
+const DynamicCategoryTypeBanner = dynamic(
+  () => import("modules/Category/CategoryTypeBanner"),
+  { loading: () => <SuspenseLoading /> }
+);
+const DynamicBlogCategory = dynamic(
+  () => import("modules/Category/BlogCategory"),
+  {
+    loading: () => <SuspenseLoading />,
+  }
+);
+let count = 0;
+let array = [];
+
+const kq = blogCategory.reduce((blogCategories, cur) => {
+  if (cur.type !== "banner" || cur.size === 12) {
+    if (array.length) {
+      blogCategories.push(array);
+      array = [];
+    }
+    blogCategories.push([cur]);
+  } else array.push(cur);
+  return blogCategories;
+}, []);
 
 const VHNTHCM = () => {
   return (
@@ -22,20 +41,18 @@ const VHNTHCM = () => {
       {/* Section Main Background */}
       <MainBackground />
 
-      {blogCategory.map((category) => (
-        <BlogCategory key={category._id} blogCategory={category} />
-      ))}
-      {/* Section Những tác phẩm của Bác*/}
-      {/* <NhungTacPhamCuaBac blogCategory={blogCategory[1]} /> */}
-
-      {/* Section Viết về Bác Hồ */}
-      {/* <VietVeBacHo blogCategory={blogCategory[0]} /> */}
-
-      {/* Section Sân khấu kịch nói */}
-      {/* <SanKhauKichNoi blogCategory={blogCategory[0]} /> */}
-
-      {/* Section Ca ngợi Bác Hồ kính yêu */}
-      {/* <CaNgoiBacHoKinhYeu blogCategory={blogCategory[2]} /> */}
+      {kq.map((blogCategoryGroup, i) =>
+        blogCategoryGroup[0].type === "banner" ? (
+          <DynamicCategoryTypeBanner key={i} tagBanners={blogCategoryGroup} />
+        ) : (
+          blogCategoryGroup.map((blogCategory) => (
+            <DynamicBlogCategory
+              key={blogCategory._id}
+              blogCategory={blogCategory}
+            />
+          ))
+        )
+      )}
     </div>
   );
 };

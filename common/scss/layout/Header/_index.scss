@@ -2,6 +2,7 @@
   position: absolute;
   left: 0;
   right: 0;
+  z-index: 2;
   .btn-login {
     @include fontSizeNavigationBtn("mobile");
     @include fontSizeNavigationBtn("tablet");

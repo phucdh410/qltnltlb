@@ -1,24 +1,41 @@
 import { useEffect, useState } from "react";
 import Head from "next/head";
-import { topics, diaries } from "mock/data";
+import dynamic from "next/dynamic";
 import { MainBackground } from "common/components/other/";
-import { Topics, Introduction, HotNews, Diaries } from "modules/Home";
-import { getAll } from "utils/axios";
+import { getAll, getTop } from "utils/axios";
+import { SuspenseLoading } from "common/components/other";
+import { topics, diaries } from "mock/data";
+
+const DynamicTopics = dynamic(() => import("modules/Home/Topics"), {
+  loading: () => <SuspenseLoading />,
+});
+const DynamicIntroduction = dynamic(() => import("modules/Home/Introduction"), {
+  loading: () => <SuspenseLoading />,
+});
+const DynamicHotNews = dynamic(() => import("modules/Home/HotNews"), {
+  loading: () => <SuspenseLoading />,
+});
+const DynamicDiaries = dynamic(() => import("modules/Home/Diaries"), {
+  loading: () => <SuspenseLoading />,
+});
 
 // export async function getServerSideProps() {
-//   const res = await getAll("topics");
-//   const data = res.data.data;
-//   return { props: { data } };
+//   const resTopics = await getAll("topics");
+//   const dataTopics = resTopics.data.data;
+
+//   const pinnedBlogs = await getTop("blogs");
+//   const dataPinBlogs = pinnedBlogs.data.data;
+
+//   const resDiaries = await getAll("diaries");
+//   const dataDiaries = resDiaries.data.data;
+
+//   return { props: { dataTopics, dataPinBlogs, dataDiaries } };
 // }
 
-export default function Home({ data }) {
-  // const [topics, setTopics] = useState([]);
-
-  // useEffect(() => {
-  //   if (data) {
-  //     setTopics(data);
-  //   }
-  // });
+export default function Home({ dataTopics, dataPinBlogs, dataDiaries }) {
+  // console.log(dataTopics);
+  // console.log(dataPinBlogs);
+  // console.log(dataDiaries);
 
   return (
     <div>
@@ -34,20 +51,21 @@ export default function Home({ data }) {
           crossOrigin="anonymous"
         />
       </Head>
+
       {/* Section Main Background */}
       <MainBackground />
 
       {/* Section Topics */}
-      <Topics topics={topics} />
+      <DynamicTopics topics={topics} />
 
       {/* Section Introduction */}
-      <Introduction />
+      <DynamicIntroduction />
 
       {/* Section Hot News */}
-      <HotNews />
+      <DynamicHotNews />
 
       {/* Section Diaries */}
-      <Diaries diaries={diaries} />
+      <DynamicDiaries diaries={diaries} />
     </div>
   );
 }

@@ -4,6 +4,7 @@ import { Tabs, Tab, styled } from "@mui/material";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import axios from "axios";
+import { getAll } from "utils/axios";
 
 const TabsNav = styled(Tabs)(({ theme }) => ({
   height: "100%",
@@ -86,7 +87,18 @@ const topics = [
 
 const Navigation = () => {
   const router = useRouter();
-  const [value, setValue] = useState("/");
+  const [value, setValue] = useState("");
+
+  const handleFindRoute = () => {
+    topics.forEach((e) => {
+      if (router.pathname.includes(e.slug)) {
+        setValue(e.slug);
+      }
+    });
+  };
+  useEffect(() => {
+    handleFindRoute();
+  }, [router]);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -108,7 +120,7 @@ const Navigation = () => {
 
             {/* icon Home */}
             <HomeTab
-              value={"/"}
+              value={""}
               label={
                 <Link href="/" passHref>
                   <svg
@@ -188,5 +200,4 @@ const Navigation = () => {
     </div>
   );
 };
-
 export default Navigation;

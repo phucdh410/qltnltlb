@@ -3,9 +3,9 @@
 
 .blog__title {
   text-align: center;
-}
-.title__text {
-  margin-bottom: 18px;
+  .title__text {
+    margin-bottom: 18px;
+  }
 }
 .blog__content {
   font-family: Arial;
@@ -62,17 +62,19 @@
   }
 }
 @include breakpoint("mobile") {
-  .__content {
-    font-size: 17px;
-    line-height: 22px;
-  }
-  .__title {
-    font-size: 18px;
-    line-height: 30px;
-  }
-  .__info {
-    font-size: 12px;
-    line-height: 18px;
+  .blog__title {
+    .__content {
+      font-size: 17px;
+      line-height: 22px;
+    }
+    .__title {
+      font-size: 18px;
+      line-height: 30px;
+    }
+    .__info {
+      font-size: 12px;
+      line-height: 18px;
+    }
   }
   .blog__content {
     font-size: 14px;
@@ -80,17 +82,19 @@
   }
 }
 @include breakpoint("tablet") {
-  .__content {
-    font-size: 22px;
-    line-height: 26px;
-  }
-  .__title {
-    font-size: 26px;
-    line-height: 38px;
-  }
-  .__info {
-    font-size: 17px;
-    line-height: 22px;
+  .blog__title {
+    .__content {
+      font-size: 22px;
+      line-height: 26px;
+    }
+    .__title {
+      font-size: 26px;
+      line-height: 38px;
+    }
+    .__info {
+      font-size: 17px;
+      line-height: 22px;
+    }
   }
   .blog__content {
     font-size: 20px;
@@ -98,17 +102,19 @@
   }
 }
 @include breakpoint("smallLaptop") {
-  .__content {
-    font-size: 22px;
-    line-height: 24px;
-  }
-  .__title {
-    font-size: 28px;
-    line-height: 40px;
-  }
-  .__info {
-    font-size: 18px;
-    line-height: 22px;
+  .blog__title {
+    .__content {
+      font-size: 22px;
+      line-height: 24px;
+    }
+    .__title {
+      font-size: 28px;
+      line-height: 40px;
+    }
+    .__info {
+      font-size: 18px;
+      line-height: 22px;
+    }
   }
   .blog__content {
     font-size: 20px;
@@ -116,17 +122,19 @@
   }
 }
 @include breakpoint("mediumLaptop") {
-  .__content {
-    font-size: 23px;
-    line-height: 26px;
-  }
-  .__title {
-    font-size: 32px;
-    line-height: 41px;
-  }
-  .__info {
-    font-size: 20px;
-    line-height: 24px;
+  .blog__title {
+    .__content {
+      font-size: 23px;
+      line-height: 26px;
+    }
+    .__title {
+      font-size: 32px;
+      line-height: 41px;
+    }
+    .__info {
+      font-size: 20px;
+      line-height: 24px;
+    }
   }
   .blog__content {
     font-size: 22px;
@@ -134,17 +142,19 @@
   }
 }
 @include breakpoint("bigLaptop") {
-  .__content {
-    font-size: 24px;
-    line-height: 28px;
-  }
-  .__title {
-    font-size: 42px;
-    line-height: 48px;
-  }
-  .__info {
-    font-size: 24px;
-    line-height: 28px;
+  .blog__title {
+    .__content {
+      font-size: 24px;
+      line-height: 28px;
+    }
+    .__title {
+      font-size: 42px;
+      line-height: 48px;
+    }
+    .__info {
+      font-size: 24px;
+      line-height: 28px;
+    }
   }
   .blog__content {
     font-size: 24px;

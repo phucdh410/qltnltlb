@@ -3,61 +3,68 @@
   .title {
     text-transform: uppercase;
     font-family: Arial;
-    font-size: 42px;
     font-style: normal;
     font-weight: 700;
-    line-height: 48px;
     letter-spacing: 0em;
     text-align: center;
   }
   .content {
-    padding-top: 43px;
     font-family: Arial;
-    font-size: 30px;
     font-style: normal;
     font-weight: 400;
-    line-height: 50px;
     letter-spacing: 0em;
-    text-align: center;
   }
-  @media screen and(max-width:1441px) {
-    .title {
-      font-size: 30px;
-    }
-    .content {
-      font-size: 26px;
-    }
-  }
-  @media screen and(max-width:1025px) {
-    .title {
-      font-size: 24px;
-    }
-    .content {
-      font-size: 20px;
-    }
-  }
-  @media screen and(max-width:769px) {
+  @include breakpoint("mobile") {
     .title {
       font-size: 18px;
       line-height: 26px;
     }
     .content {
-      font-size: 14px;
+      font-size: 16px;
       line-height: 26px;
       padding-top: 20px;
       text-align: justify;
     }
   }
-}
-@media screen and(min-width:1440px) {
-  .introduction {
-    padding-left: 100px;
-    padding-right: 100px;
+  @include breakpoint("tablet") {
+    .title {
+      font-size: 19px;
+      line-height: 28px;
+    }
+    .content {
+      padding-top: 25px;
+      font-size: 18px;
+      text-align: center;
+    }
   }
-}
-@media screen and(min-width:1720px) {
-  .introduction {
-    padding-left: 120px;
-    padding-right: 120px;
+  @include breakpoint("smallLaptop") {
+    .title {
+      font-size: 22px;
+      line-height: 30px;
+    }
+    .content {
+      font-size: 21px;
+    }
+  }
+  @include breakpoint("mediumLaptop") {
+    .title {
+      font-size: 30px;
+      line-height: 40px;
+    }
+    .content {
+      padding-top: 43px;
+      font-size: 28px;
+      line-height: 36px;
+    }
+  }
+  @include breakpoint("bigLaptop") {
+    .title {
+      font-size: 42px;
+      line-height: 50px;
+    }
+    .content {
+      font-size: 30px;
+      line-height: 50px;
+    }
   }
 }

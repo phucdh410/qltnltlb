@@ -1,17 +1,10 @@
 import React from "react";
 import { ReadMoreButton } from "common/components/control";
-import {
-  About,
-  BlogsGrid,
-  ImageSlider,
-  MediaSlider,
-  TagBannerList,
-} from "common/components/other";
+import { About } from "common/components/other";
+import { BlogsGrid, ImageSlider, MediaSlider } from "../components";
 
 const BlogCategory = ({ blogCategory }) => {
-  return blogCategory.type === 3 ? (
-    <TagBannerList tagBanners={blogCategory.blogs} />
-  ) : (
+  return (
     <div className="section-wrap">
       <div className="container-fluid">
         <div className="row">
@@ -22,11 +15,11 @@ const BlogCategory = ({ blogCategory }) => {
                   {blogCategory.description !== "" && (
                     <p>{blogCategory.title}</p>
                   )}
-                  {blogCategory.type === 0 && <p>{blogCategory.title}</p>}
+                  {blogCategory.type === "blog" && <p>{blogCategory.title}</p>}
                 </div>
               </div>
               <div className="col-4 col-lg-2">
-                {blogCategory.type === 0 && (
+                {blogCategory.type === "blog" && (
                   <ReadMoreButton url={blogCategory.link} />
                 )}
               </div>
@@ -36,8 +29,10 @@ const BlogCategory = ({ blogCategory }) => {
             </div>
           </div>
         </div>
-        {blogCategory.type === 0 && <BlogsGrid blogs={blogCategory.blogs} />}
-        {blogCategory.type === 1 && (
+        {blogCategory.type === "blog" && (
+          <BlogsGrid blogs={blogCategory.blogs} />
+        )}
+        {blogCategory.type === "image" && (
           <ImageSlider
             blogs={blogCategory.blogs}
             description={blogCategory.description}
@@ -45,7 +40,7 @@ const BlogCategory = ({ blogCategory }) => {
             url={blogCategory.link}
           />
         )}
-        {blogCategory.type === 2 && (
+        {blogCategory.type === "media" && (
           <MediaSlider
             blogs={blogCategory.blogs}
             description={blogCategory.description}

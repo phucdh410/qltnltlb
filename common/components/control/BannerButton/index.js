@@ -2,9 +2,9 @@ import { Button, styled } from "@mui/material";
 
 const styles = {
   position: "absolute",
-  top: "90%",
+  top: "70%",
   left: "50%",
-  transform: "translate(-50%, -90%)",
+  transform: "translate(-50%, -70%)",
 };
 const NewButton = styled(Button)(({ theme }) => ({
   backgroundColor: theme.palette.color.pink,
@@ -20,7 +20,7 @@ const NewButton = styled(Button)(({ theme }) => ({
 const BannerButton = ({ label, onClick }) => {
   return (
     <div style={styles}>
-      <NewButton className="banner-btn" onClick={onClick} data-aos="fade-up">
+      <NewButton className="banner-btn" onClick={onClick}>
         {label}
       </NewButton>
     </div>

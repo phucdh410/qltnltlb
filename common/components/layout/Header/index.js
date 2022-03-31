@@ -1,9 +1,33 @@
-import React from "react";
+import axios from "axios";
+import React, { useCallback, useEffect, useState } from "react";
+import { shallowEqual, useDispatch, useSelector } from "react-redux";
+import { onGetTopics } from "store/actions/topicAction";
+import { cancel, getAll } from "utils/axios";
 import Logo from "./Logo";
 import Navigation from "./Navigation";
 import SubmenuBtn from "./SubmenuBtn";
 
+let source = axios.CancelToken.source();
+
 const Header = () => {
+  const dispatch = useDispatch();
+  const { topics } = useSelector(
+    (state) => ({
+      topics: state.topic.topics,
+    }),
+    shallowEqual
+  );
+  // console.log(topics); Lấy danh sách topic để render menu
+
+  const handleRequest = useCallback(() => {
+    source = axios.CancelToken.source();
+    dispatch(onGetTopics());
+  }, [dispatch]);
+  useEffect(() => {
+    handleRequest();
+    return () => source && cancel();
+  }, [handleRequest]);
+
   return (
     <div className="header">
       <div className="container-fluid">

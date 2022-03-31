@@ -1,8 +1,35 @@
 import React from "react";
 import Head from "next/head";
+import dynamic from "next/dynamic";
 import { main_banner_with_button, blogCategory2 } from "mock/data";
-import { MainBackground } from "common/components/other/";
-import { BlogCategory } from "modules/Category";
+import { MainBackground, SuspenseLoading } from "common/components/other/";
+import { BlogCategory, CategoryTypeBanner } from "modules/Category";
+
+const DynamicCategoryTypeBanner = dynamic(
+  () => import("modules/Category/CategoryTypeBanner"),
+  { loading: () => <SuspenseLoading /> }
+);
+const DynamicBlogCategory = dynamic(
+  () => import("modules/Category/BlogCategory"),
+  {
+    loading: () => <SuspenseLoading />,
+  }
+);
+let count = 0;
+let array = [];
+
+const kq = blogCategory2.reduce((blogCategories, cur) => {
+  if (cur.type !== "banner" || cur.size === 12) {
+    if (array.length) {
+      blogCategories.push(array);
+      array = [];
+    }
+    blogCategories.push([cur]);
+  } else array.push(cur);
+  return blogCategories;
+}, []);
+
+console.log(kq);
 
 const HTVLTLB = () => {
   return (
@@ -14,10 +41,20 @@ const HTVLTLB = () => {
       </Head>
 
       {/* Section main background */}
-      <MainBackground banner={main_banner_with_button} />
-      {blogCategory2.map((blogCategory) => (
-        <BlogCategory key={blogCategory._id} blogCategory={blogCategory} />
-      ))}
+      <MainBackground banners={[main_banner_with_button]} />
+
+      {kq.map((blogCategoryGroup, i) =>
+        blogCategoryGroup[0].type === "banner" ? (
+          <DynamicCategoryTypeBanner key={i} tagBanners={blogCategoryGroup} />
+        ) : (
+          blogCategoryGroup.map((blogCategory) => (
+            <DynamicBlogCategory
+              key={blogCategory._id}
+              blogCategory={blogCategory}
+            />
+          ))
+        )
+      )}
     </>
   );
 };

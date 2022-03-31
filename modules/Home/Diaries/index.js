@@ -53,23 +53,23 @@ const Diaries = ({ diaries }) => {
               {diaries &&
                 diaries.length > 0 &&
                 diaries.map((diary) => (
-                  <div key={diary.id} className="card-container">
+                  <div key={diary._id} className="card-container">
                     <Card className="card-profile">
                       <div className="card-content">
                         <div className="container px-0">
                           <div className="row">
                             <div className="col-5 diaries-image">
-                              <img src={diary.image} alt={diary.name} />
+                              <img src={diary.avatar} alt={diary.fullname} />
                             </div>
                             <div className="col-7 diaries-info">
                               <div className="name">
-                                <p>{diary.name}</p>
+                                <p>{diary.fullname}</p>
                               </div>
                               <div className="khoa">
-                                <p>{diary.khoa}</p>
+                                <p>Sinh viên {diary.k}</p>
                               </div>
                               <div className="department">
-                                <p>{diary.department}</p>
+                                <p>{diary.major}</p>
                               </div>
                               <div className="achievement">
                                 <p>{diary.achievement}</p>
@@ -81,7 +81,7 @@ const Diaries = ({ diaries }) => {
                           <div className="row">
                             <div className="col-12">
                               <div className="hobby">
-                                <p>{diary.hobby}</p>
+                                <p>{diary.description}</p>
                               </div>
                             </div>
                           </div>

@@ -1,3 +1,8 @@
+.main-bg-container {
+  .slick-arrow {
+    display: none !important;
+  }
+}
 .main-bg {
   height: 1080px;
   background: url(/assets/images/global/banner-overlay.webp), $color-bg-gradient;

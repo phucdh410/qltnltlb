@@ -1,66 +1,88 @@
-import { BlogCategory } from "modules/Category";
 import Head from "next/head";
-import {
-  MainBackground,
-  Banner,
-  TagBannerList,
-} from "../../common/components/other/";
+import dynamic from "next/dynamic";
+import { MainBackground, SuspenseLoading } from "common/components/other/";
 
-const blogCategory = {
-  _id: "blog_category-4",
-  slug: "blog_category-4",
-  type: 3,
-  title: "Hành trình theo chân Bác",
-  link: "/hanh-trinh-theo-chan-bac",
-  description: "",
-  blogs: [
-    {
-      id: 1,
-      title: "Cuộc đời và hoạt động của Bác",
-      image: "https://picsum.photos/828/436",
-      size: 6,
-      button: "",
-      link: "#",
-      slug: "#",
-    },
-    {
-      id: 2,
-      title: "Hình ảnh tư liệu về Bác",
-      image: "https://picsum.photos/828/436",
-      size: 6,
-      button: "",
-      link: "#",
-      slug: "#",
-    },
-    {
-      id: 3,
-      title: "Những mẫu chuyện về Bác",
-      image: "https://picsum.photos/828/436",
-      size: 6,
-      button: "",
-      link: "#",
-      slug: "#",
-    },
-    {
-      id: 4,
-      title: "Phim tư liệu về Bác",
-      image: "https://picsum.photos/828/436",
-      size: 6,
-      button: "",
-      link: "#",
-      slug: "#",
-    },
-    {
-      id: 5,
-      title: "Địa danh lịch sử",
-      image: "https://picsum.photos/828/436",
-      size: 12,
-      button: "",
-      link: "",
-      slug: "",
-    },
-  ],
-};
+const DynamicCategoryTypeBanner = dynamic(
+  () => import("modules/Category/CategoryTypeBanner"),
+  { loading: () => <SuspenseLoading /> }
+);
+const DynamicBlogCategory = dynamic(
+  () => import("modules/Category/BlogCategory"),
+  {
+    loading: () => <SuspenseLoading />,
+  }
+);
+
+const blogCategory = [
+  {
+    _id: "blog_category-1",
+    slug: "#",
+    link: "#",
+    size: 6,
+    type: "banner",
+    title: "Cuộc đời và hoạt động của Bác",
+    button: "",
+    description: "",
+    image: "https://picsum.photos/828/436",
+  },
+  {
+    _id: "blog_category-2",
+    slug: "#",
+    link: "#",
+    size: 6,
+    type: "banner",
+    title: "Hình ảnh tư liệu về Bác",
+    button: "",
+    description: "",
+    image: "https://picsum.photos/828/436",
+  },
+  {
+    _id: "blog_category-3",
+    slug: "#",
+    link: "#",
+    size: 6,
+    type: "banner",
+    title: "Những mẫu chuyện về Bác",
+    button: "",
+    description: "",
+    image: "https://picsum.photos/828/436",
+  },
+  {
+    _id: "blog_category-4",
+    slug: "#",
+    link: "#",
+    size: 6,
+    type: "banner",
+    title: "Phim tư liệu về Bác",
+    button: "",
+    description: "",
+    image: "https://picsum.photos/828/436",
+  },
+  {
+    _id: "blog_category-5",
+    slug: "#",
+    link: "#",
+    size: 12,
+    type: "banner",
+    title: "Địa danh lịch sử",
+    button: "",
+    description: "",
+    image: "https://picsum.photos/828/436",
+  },
+];
+let count = 0;
+let array = [];
+const kq = blogCategory.reduce((blogCategories, cur) => {
+  if (cur.type !== "banner" || cur.size === 12) {
+    if (array.length) {
+      blogCategories.push(array);
+      array = [];
+    }
+    blogCategories.push([cur]);
+  } else array.push(cur);
+  return blogCategories;
+}, []);
+console.log(kq);
 
 const HTTCB = () => {
   return (
@@ -74,7 +96,18 @@ const HTTCB = () => {
       {/* Section Main Background */}
       <MainBackground />
 
-      <BlogCategory blogCategory={blogCategory} />
+      {kq.map((blogCategoryGroup, i) =>
+        blogCategoryGroup[0].type === "banner" ? (
+          <DynamicCategoryTypeBanner key={i} tagBanners={blogCategoryGroup} />
+        ) : (
+          blogCategoryGroup.map((blogCategory) => (
+            <DynamicBlogCategory
+              key={blogCategory._id}
+              blogCategory={blogCategory}
+            />
+          ))
+        )
+      )}
     </div>
   );
 };

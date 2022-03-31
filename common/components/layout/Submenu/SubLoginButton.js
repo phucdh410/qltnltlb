@@ -7,7 +7,11 @@ const SubLoginButton = () => {
   const handleClose = () => setOpen(false);
   return (
     <div className="sub-login-button">
-      <button className="button-62" onClick={handleOpen}>
+      <button
+        className="button-62"
+        data-bs-dismiss="offcanvas"
+        onClick={handleOpen}
+      >
         Đăng nhập
       </button>
       <LoginModal open={open} onClose={handleClose} />

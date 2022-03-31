@@ -11,6 +11,7 @@ import FireIcon from "../../other/FireIcon/";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import SubLoginButton from "./SubLoginButton";
+import { useSelector, shallowEqual } from "react-redux";
 
 const ListBtn = styled(ListItemButton)(({ theme }) => ({
   transition: "0.5s",
@@ -40,6 +41,13 @@ const urlMenu = [
   "/hoc-tap-va-lam-theo-loi-bac",
 ];
 const Subnav = () => {
+  const { topics } = useSelector(
+    (state) => ({
+      topics: state.topic.topics,
+    }),
+    shallowEqual
+  );
+  // console.log(topics); Lấy danh sách topic để render menu
   const router = useRouter();
   const [selectedIndex, setSelectedIndex] = useState(0);
 
