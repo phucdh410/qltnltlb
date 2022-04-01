@@ -10,6 +10,43 @@
     height: auto;
     max-height: 630px;
   }
+  .tag-label {
+    color: $color-white;
+    font-family: Arial;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 55px;
+    letter-spacing: 0em;
+    text-align: center;
+  }
+  @include breakpoint("mobile") {
+    .tag-label {
+      font-size: $fs-mb-label;
+      line-height: 26px;
+    }
+  }
+  @include breakpoint("tablet") {
+    .tag-label {
+      font-size: $fs-tb-label;
+      line-height: 30px;
+    }
+  }
+  @include breakpoint("smallLaptop") {
+    .tag-label {
+      font-size: $fs-lt-s-label;
+    }
+  }
+  @include breakpoint("mediumLaptop") {
+    .tag-label {
+      font-size: 30px;
+    }
+  }
+  @include breakpoint("bigLaptop") {
+    .tag-label {
+      font-size: 48px;
+      line-height: 55px;
+    }
+  }
 }
 
 @media only screen and(max-width: 577px) {

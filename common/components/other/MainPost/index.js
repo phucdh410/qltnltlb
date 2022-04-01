@@ -1,32 +1,38 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import PropTypes from "prop-types";
 
-const MainPost = ({ image, title, description }) => {
-  return (
-    <div
-      className="container-fluid px-0"
-      style={{ marginBottom: "35px" }}
-      data-aos="fade-up"
-    >
-      <div className="row">
-        <div className="col-10 col-md-8 col-lg-5 col-xxl-4 mx-auto">
-          <div className="post-image">
-            <img src={image} alt="image" />
+const MainPost = forwardRef(
+  ({ onClick, href, image, title, description }, ref) => {
+    return (
+      <div
+        href={href}
+        ref={ref}
+        onClick={onClick}
+        name="main-post"
+        className="container-fluid px-0"
+        style={{ marginBottom: "35px", cursor: "pointer" }}
+        data-aos="fade-up"
+      >
+        <div className="row">
+          <div className="col-10 col-md-8 col-lg-5 col-xxl-4 mx-auto">
+            <div className="post-image">
+              <img src={image} alt="image" />
+            </div>
           </div>
-        </div>
-        <div className="col-12 col-lg-7 col-xxl-8">
-          <div className="secondary-title">
-            <p>{title}</p>
-          </div>
-          <div className="primary-text">
-            <p>{description}</p>
+          <div className="col-12 col-lg-7 col-xxl-8">
+            <div className="secondary-title">
+              <p>{title}</p>
+            </div>
+            <div className="primary-text">
+              <p>{description}</p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  );
-};
-
+    );
+  }
+);
+MainPost.displayName = "Main Post";
 export default MainPost;
 
 MainPost.propTypes = {

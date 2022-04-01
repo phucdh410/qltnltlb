@@ -17,46 +17,67 @@ const DynamicBlogCategory = dynamic(
 );
 
 const TopicDetail = ({ topic, banners, blogCategories }) => {
+  const router = useRouter();
+
+  console.log(router.query);
   // console.log(topic);
   // console.log(banners);
   // console.log(blogCategories);
 
-  const router = useRouter();
   return (
     <>
       <Head>
-        <title>{topic.name}</title>
+        <title>{topic?.name || "Trang topic"}</title>
       </Head>
+
+      {console.log(blogCategories)}
 
       <main>
         <MainBackground banners={banners} />
 
-        {blogCategories.map((blogCategoryGroup, i) =>
-          blogCategoryGroup[0].type === "banner" ? (
-            <DynamicCategoryTypeBanner key={i} tagBanners={blogCategoryGroup} />
-          ) : (
-            blogCategoryGroup.map((blogCategory) => (
-              <DynamicBlogCategory
-                key={blogCategory._id}
-                blogCategory={blogCategory}
+        {console.log(blogCategories[0][0])}
+        {blogCategories?.length > 0 &&
+          blogCategories.map((blogCategoryGroup, i) =>
+            blogCategoryGroup[0].type === "banner" ? (
+              <DynamicCategoryTypeBanner
+                key={i}
+                tagBanners={blogCategoryGroup}
               />
-            ))
-          )
-        )}
+            ) : (
+              blogCategoryGroup.map((blogCategory) => (
+                <DynamicBlogCategory
+                  key={blogCategory._id}
+                  blogCategory={blogCategory}
+                />
+              ))
+            )
+          )}
       </main>
     </>
   );
 };
 export const getServerSideProps = async ({ params }) => {
+  let topicProps = {};
+
   const resTopic = await getBySlug("topics", params.slug);
-  const topic = resTopic.data;
-  console.log(topic);
-  const resBanner = await getByTopicId("banners", topic._id);
-  const banners = resBanner.data;
+  if (resTopic?.data) {
+    const topic = resTopic.data;
+    console.log(topic);
+    topicProps = { ...topicProps, topic };
 
-  const resBlogCategories = await getByTopicId("blogCategories", topic._id);
-  const blogCategories = resBlogCategories.data;
+    const resBanner = await getByTopicId("banners", topic._id);
+    if (resBanner?.data) {
+      const banners = resBanner.data;
+      topicProps = { ...topicProps, banners };
+    }
 
-  return { props: { topic, banners, blogCategories } };
+    const resBlogCategories = await getByTopicId("blogCategories", topic._id);
+    if (resBlogCategories?.data) {
+      const blogCategories = resBlogCategories.data;
+      topicProps = { ...topicProps, blogCategories };
+    }
+  }
+
+  return { props: topicProps };
 };
 export default TopicDetail;

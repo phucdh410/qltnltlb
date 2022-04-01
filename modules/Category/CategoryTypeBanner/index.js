@@ -34,6 +34,7 @@ const CategoryTypeBanner = ({ tagBanners }) => {
       {largeBanner.map((e, i) => (
         <Banner
           key={e._id}
+          title={e.title}
           button={e.button}
           link={e.link}
           image={e.image}

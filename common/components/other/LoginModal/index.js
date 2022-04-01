@@ -5,8 +5,10 @@ import * as yup from "yup";
 import { useFormik } from "formik";
 import { TextField } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-import { onLogin } from "utils/axios/auth";
 import { toast } from "react-toastify";
+import { useDispatch } from "react-redux";
+import { onLogin } from "utils/axios/auth";
+import { onUserLogin } from "store/actions/authAction";
 
 const useStyles = makeStyles((theme) => ({
   LoginInput: {
@@ -39,15 +41,17 @@ let source = axios.CancelToken.source;
 
 const LoginModal = ({ open, onClose }) => {
   const classes = useStyles();
+  const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
+
   // Account test
   // username: "admin"
-  // password: "827ccb0eea8a706c4c34a16891f84e7b"
+  // password: "12345"
   // fcmToken: "12345"
   const handleLogin = useCallback(async (values) => {
     setLoading(true);
-    const params = { ...values, fcmToken: "12345" };
-    const response = await onLogin(params, source);
+    const data = { ...values, fcmToken: "12345" };
+    const response = await dispatch(onUserLogin(data, source));
     if (response === false) {
       formik.setErrors({
         username: "Sai tên đăng nhập hoặc mật khẩu",

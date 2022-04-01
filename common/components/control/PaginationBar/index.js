@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import PropTypes from "prop-types";
 import { Pagination, PaginationItem, styled } from "@mui/material";
 
 const NewPagination = styled(Pagination)(({ theme }) => ({
@@ -38,22 +39,32 @@ const NewPagination = styled(Pagination)(({ theme }) => ({
   },
 }));
 
-const PaginationBar = () => {
+const PaginationBar = ({ pages }) => {
+  const [page, setPage] = useState(1);
+
+  const onChange = (event, newValue) => {
+    setPage(newValue);
+  };
   return (
     <NewPagination
       className="pagination-bar-wrap"
       size="large"
-      count={10}
+      count={pages}
       shape="rounded"
       boundaryCount={1}
       siblingCount={1}
       // data-aos="zoom-in"
-      //   page={} Xử lí xử kiện khi thay đổi page
-      //   onChange={}
-
+      page={page}
+      onChange={onChange}
       renderItem={(item) => <PaginationItem {...item} />}
     />
   );
 };
 
 export default PaginationBar;
+PaginationBar.propTypes = {
+  pages: PropTypes.number,
+};
+Pagination.defaultProps = {
+  pages: 1,
+};

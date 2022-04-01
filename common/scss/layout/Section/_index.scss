@@ -1,8 +1,14 @@
 .section-wrap {
   padding-top: 45px;
 }
+.blog-detail-wrap {
+  padding-top: 150px;
+}
 @media screen and(max-width:769px) {
   .section-wrap {
     padding-top: 26px;
+  }
+  .blog-detail-wrap {
+    padding-top: 80px;
   }
 }

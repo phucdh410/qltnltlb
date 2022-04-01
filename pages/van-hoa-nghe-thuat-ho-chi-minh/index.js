@@ -3,7 +3,6 @@ import dynamic from "next/dynamic";
 import React from "react";
 import { MainBackground, SuspenseLoading } from "common/components/other";
 import { blogCategory } from "mock/data";
-import { BlogCategory, CategoryTypeBanner } from "modules/Category";
 
 const DynamicCategoryTypeBanner = dynamic(
   () => import("modules/Category/CategoryTypeBanner"),

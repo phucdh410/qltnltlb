@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { PropTypes } from "prop-types";
 import { AccountCircle } from "@mui/icons-material";
 import { Button, styled } from "@mui/material";
 import Link from "next/link";
 import { LoginModal } from "common/components/other";
+import { shallowEqual, useSelector } from "react-redux";
 
 const LoginBtn = styled(Button)(({ theme }) => ({
   height: "100%",
@@ -34,6 +35,22 @@ const LoginButton = ({ label, className }) => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+  const { user } = useSelector(
+    (state) => ({
+      user: state.auth.user,
+    }),
+    shallowEqual
+  );
+
+  useEffect(() => {
+    if (user) {
+      console.log("Người dùng đã đăng nhập");
+    } else {
+      console.log("người dùng chưa đăng nhập");
+    }
+  }, [user]);
+
   return (
     <>
       <LoginBtn

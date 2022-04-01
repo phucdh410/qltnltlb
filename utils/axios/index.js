@@ -85,6 +85,22 @@ const getByTopicId = async (path, topicId, options = { headers }) => {
   }
 };
 
+const getByCategoryId = async (path, categoryId, options = { headers }) => {
+  try {
+    const res = await axios.get(`/v1/${path}/getByCategoryId/${categoryId}`, {
+      ...options,
+      cancelToken: source.token,
+    });
+    if (res?.data) {
+      return res.data;
+    }
+    return null;
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
+};
+
 // Set Authentication Token-Based
 const setAuthToken = (token) => {
   if (token) axios.defaults.headers.common["x-access-token"] = token;
@@ -92,4 +108,12 @@ const setAuthToken = (token) => {
   else delete axios.defaults.headers.common["x-access-token"]; // Delete auth header
 };
 
-export { setAuthToken, getAll, getById, getBySlug, getByTopicId, getTop };
+export {
+  setAuthToken,
+  getAll,
+  getById,
+  getBySlug,
+  getByTopicId,
+  getByCategoryId,
+  getTop,
+};

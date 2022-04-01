@@ -1,11 +1,14 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import PropTypes from "prop-types";
 
-const Post = ({ image, title, description }) => {
+const Post = forwardRef(({ onClick, href, image, title, description }, ref) => {
   return (
     <div
+      href={href}
+      onClick={onClick}
+      ref={ref}
       className="container-fluid px-0"
-      style={{ marginBottom: "35px" }}
+      style={{ marginBottom: "35px", cursor: "pointer" }}
       data-aos="fade-up"
     >
       <div className="row">
@@ -25,8 +28,9 @@ const Post = ({ image, title, description }) => {
       </div>
     </div>
   );
-};
+});
 
+Post.displayName = "Post";
 export default Post;
 
 Post.propTypes = {

@@ -309,6 +309,7 @@ export const blogCategory = [
         description:
           "Hồ Chí Minh nhà văn nhà thơ lớn. Sự nghiệp văn học của Người gắn liền với sự nghiệp cứu nước cứu dân. Ở Hồ Chí Minh, văn cũng tức là người. Văn thơ của Người phản ánh tâm hồn cao đẹp và cuộc đời vĩ đại của Người - một cuộc đời trọn đời vì nước, vì dân. Không tự coi mình là nhà văn nhà thơ, nhưng trên thực tế Hồ Chí Minh để lại di sản văn học vô cùng quý giá cho dân tộc và nhân loại...",
         image: "https://picsum.photos/543/361",
+        link: "/blog/blog-1",
       },
       {
         id: "blog-2",
@@ -317,6 +318,7 @@ export const blogCategory = [
         description:
           "Hồ Chí Minh nhà văn nhà thơ lớn. Sự nghiệp văn học của Người gắn liền với sự nghiệp cứu nước cứu dân. Ở Hồ Chí Minh, văn cũng tức là người. Văn thơ của Người phản ánh tâm hồn cao đẹp và cuộc đời vĩ đại của Người - một cuộc đời trọn đời vì nước, vì dân. Không tự coi mình là nhà văn nhà thơ, nhưng trên thực tế Hồ Chí Minh để lại di sản văn học vô cùng quý giá cho dân tộc và nhân loại...",
         image: "https://picsum.photos/543/361",
+        link: "/blog/blog-2",
       },
       {
         id: "blog-3",
@@ -325,6 +327,7 @@ export const blogCategory = [
         description:
           "Hồ Chí Minh nhà văn nhà thơ lớn. Sự nghiệp văn học của Người gắn liền với sự nghiệp cứu nước cứu dân. Ở Hồ Chí Minh, văn cũng tức là người. Văn thơ của Người phản ánh tâm hồn cao đẹp và cuộc đời vĩ đại của Người - một cuộc đời trọn đời vì nước, vì dân. Không tự coi mình là nhà văn nhà thơ, nhưng trên thực tế Hồ Chí Minh để lại di sản văn học vô cùng quý giá cho dân tộc và nhân loại...",
         image: "https://picsum.photos/543/361",
+        link: "/blog/blog-3",
       },
       {
         id: "blog-4",
@@ -333,6 +336,7 @@ export const blogCategory = [
         description:
           "Hồ Chí Minh nhà văn nhà thơ lớn. Sự nghiệp văn học của Người gắn liền với sự nghiệp cứu nước cứu dân. Ở Hồ Chí Minh, văn cũng tức là người. Văn thơ của Người phản ánh tâm hồn cao đẹp và cuộc đời vĩ đại của Người - một cuộc đời trọn đời vì nước, vì dân. Không tự coi mình là nhà văn nhà thơ, nhưng trên thực tế Hồ Chí Minh để lại di sản văn học vô cùng quý giá cho dân tộc và nhân loại...",
         image: "https://picsum.photos/543/361",
+        link: "/blog/blog-4",
       },
       {
         id: "blog-5",
@@ -341,6 +345,7 @@ export const blogCategory = [
         description:
           "Hồ Chí Minh nhà văn nhà thơ lớn. Sự nghiệp văn học của Người gắn liền với sự nghiệp cứu nước cứu dân. Ở Hồ Chí Minh, văn cũng tức là người. Văn thơ của Người phản ánh tâm hồn cao đẹp và cuộc đời vĩ đại của Người - một cuộc đời trọn đời vì nước, vì dân. Không tự coi mình là nhà văn nhà thơ, nhưng trên thực tế Hồ Chí Minh để lại di sản văn học vô cùng quý giá cho dân tộc và nhân loại...",
         image: "https://picsum.photos/543/361",
+        link: "/blog/blog-5",
       },
       {
         id: "blog-6",
@@ -349,6 +354,7 @@ export const blogCategory = [
         description:
           "Hồ Chí Minh nhà văn nhà thơ lớn. Sự nghiệp văn học của Người gắn liền với sự nghiệp cứu nước cứu dân. Ở Hồ Chí Minh, văn cũng tức là người. Văn thơ của Người phản ánh tâm hồn cao đẹp và cuộc đời vĩ đại của Người - một cuộc đời trọn đời vì nước, vì dân. Không tự coi mình là nhà văn nhà thơ, nhưng trên thực tế Hồ Chí Minh để lại di sản văn học vô cùng quý giá cho dân tộc và nhân loại...",
         image: "https://picsum.photos/543/361",
+        link: "/blog/blog-6",
       },
     ],
   },
@@ -367,6 +373,7 @@ export const blogCategory = [
         description:
           "Hồ Chí Minh nhà văn nhà thơ lớn. Sự nghiệp văn học của Người gắn liền với sự nghiệp cứu nước cứu dân. Ở Hồ Chí Minh, văn cũng tức là người. Văn thơ của Người phản ánh tâm hồn cao đẹp và cuộc đời vĩ đại của Người - một cuộc đời trọn đời vì nước, vì dân. Không tự coi mình là nhà văn nhà thơ, nhưng trên thực tế Hồ Chí Minh để lại di sản văn học vô cùng quý giá cho dân tộc và nhân loại...",
         image: "https://picsum.photos/543/361",
+        link: "/blog/blog-1",
       },
       {
         id: "blog-2",
@@ -375,6 +382,7 @@ export const blogCategory = [
         description:
           "Hồ Chí Minh nhà văn nhà thơ lớn. Sự nghiệp văn học của Người gắn liền với sự nghiệp cứu nước cứu dân. Ở Hồ Chí Minh, văn cũng tức là người. Văn thơ của Người phản ánh tâm hồn cao đẹp và cuộc đời vĩ đại của Người - một cuộc đời trọn đời vì nước, vì dân. Không tự coi mình là nhà văn nhà thơ, nhưng trên thực tế Hồ Chí Minh để lại di sản văn học vô cùng quý giá cho dân tộc và nhân loại...",
         image: "https://picsum.photos/543/361",
+        link: "/blog/blog-2",
       },
       {
         id: "blog-3",
@@ -383,6 +391,7 @@ export const blogCategory = [
         description:
           "Hồ Chí Minh nhà văn nhà thơ lớn. Sự nghiệp văn học của Người gắn liền với sự nghiệp cứu nước cứu dân. Ở Hồ Chí Minh, văn cũng tức là người. Văn thơ của Người phản ánh tâm hồn cao đẹp và cuộc đời vĩ đại của Người - một cuộc đời trọn đời vì nước, vì dân. Không tự coi mình là nhà văn nhà thơ, nhưng trên thực tế Hồ Chí Minh để lại di sản văn học vô cùng quý giá cho dân tộc và nhân loại...",
         image: "https://picsum.photos/543/361",
+        link: "/blog/blog-3",
       },
       {
         id: "blog-4",
@@ -391,6 +400,7 @@ export const blogCategory = [
         description:
           "Hồ Chí Minh nhà văn nhà thơ lớn. Sự nghiệp văn học của Người gắn liền với sự nghiệp cứu nước cứu dân. Ở Hồ Chí Minh, văn cũng tức là người. Văn thơ của Người phản ánh tâm hồn cao đẹp và cuộc đời vĩ đại của Người - một cuộc đời trọn đời vì nước, vì dân. Không tự coi mình là nhà văn nhà thơ, nhưng trên thực tế Hồ Chí Minh để lại di sản văn học vô cùng quý giá cho dân tộc và nhân loại...",
         image: "https://picsum.photos/543/361",
+        link: "/blog/blog-3",
       },
       {
         id: "blog-5",
@@ -399,6 +409,7 @@ export const blogCategory = [
         description:
           "Hồ Chí Minh nhà văn nhà thơ lớn. Sự nghiệp văn học của Người gắn liền với sự nghiệp cứu nước cứu dân. Ở Hồ Chí Minh, văn cũng tức là người. Văn thơ của Người phản ánh tâm hồn cao đẹp và cuộc đời vĩ đại của Người - một cuộc đời trọn đời vì nước, vì dân. Không tự coi mình là nhà văn nhà thơ, nhưng trên thực tế Hồ Chí Minh để lại di sản văn học vô cùng quý giá cho dân tộc và nhân loại...",
         image: "https://picsum.photos/543/361",
+        link: "/blog/blog-5",
       },
       {
         id: "blog-6",
@@ -407,6 +418,7 @@ export const blogCategory = [
         description:
           "Hồ Chí Minh nhà văn nhà thơ lớn. Sự nghiệp văn học của Người gắn liền với sự nghiệp cứu nước cứu dân. Ở Hồ Chí Minh, văn cũng tức là người. Văn thơ của Người phản ánh tâm hồn cao đẹp và cuộc đời vĩ đại của Người - một cuộc đời trọn đời vì nước, vì dân. Không tự coi mình là nhà văn nhà thơ, nhưng trên thực tế Hồ Chí Minh để lại di sản văn học vô cùng quý giá cho dân tộc và nhân loại...",
         image: "https://picsum.photos/543/361",
+        link: "/blog/blog-6",
       },
     ],
   },
@@ -538,6 +550,7 @@ export const blogCategory2 = [
         description:
           "Hồ Chí Minh nhà văn nhà thơ lớn. Sự nghiệp văn học của Người gắn liền với sự nghiệp cứu nước cứu dân. Ở Hồ Chí Minh, văn cũng tức là người. Văn thơ của Người phản ánh tâm hồn cao đẹp và cuộc đời vĩ đại của Người - một cuộc đời trọn đời vì nước, vì dân. Không tự coi mình là nhà văn nhà thơ, nhưng trên thực tế Hồ Chí Minh để lại di sản văn học vô cùng quý giá cho dân tộc và nhân loại...",
         image: "https://picsum.photos/543/361",
+        link: "#",
       },
       {
         id: "blog-2",
@@ -546,6 +559,7 @@ export const blogCategory2 = [
         description:
           "Hồ Chí Minh nhà văn nhà thơ lớn. Sự nghiệp văn học của Người gắn liền với sự nghiệp cứu nước cứu dân. Ở Hồ Chí Minh, văn cũng tức là người. Văn thơ của Người phản ánh tâm hồn cao đẹp và cuộc đời vĩ đại của Người - một cuộc đời trọn đời vì nước, vì dân. Không tự coi mình là nhà văn nhà thơ, nhưng trên thực tế Hồ Chí Minh để lại di sản văn học vô cùng quý giá cho dân tộc và nhân loại...",
         image: "https://picsum.photos/543/361",
+        link: "#",
       },
       {
         id: "blog-3",
@@ -554,6 +568,7 @@ export const blogCategory2 = [
         description:
           "Hồ Chí Minh nhà văn nhà thơ lớn. Sự nghiệp văn học của Người gắn liền với sự nghiệp cứu nước cứu dân. Ở Hồ Chí Minh, văn cũng tức là người. Văn thơ của Người phản ánh tâm hồn cao đẹp và cuộc đời vĩ đại của Người - một cuộc đời trọn đời vì nước, vì dân. Không tự coi mình là nhà văn nhà thơ, nhưng trên thực tế Hồ Chí Minh để lại di sản văn học vô cùng quý giá cho dân tộc và nhân loại...",
         image: "https://picsum.photos/543/361",
+        link: "#",
       },
       {
         id: "blog-4",
@@ -562,6 +577,7 @@ export const blogCategory2 = [
         description:
           "Hồ Chí Minh nhà văn nhà thơ lớn. Sự nghiệp văn học của Người gắn liền với sự nghiệp cứu nước cứu dân. Ở Hồ Chí Minh, văn cũng tức là người. Văn thơ của Người phản ánh tâm hồn cao đẹp và cuộc đời vĩ đại của Người - một cuộc đời trọn đời vì nước, vì dân. Không tự coi mình là nhà văn nhà thơ, nhưng trên thực tế Hồ Chí Minh để lại di sản văn học vô cùng quý giá cho dân tộc và nhân loại...",
         image: "https://picsum.photos/543/361",
+        link: "#",
       },
       {
         id: "blog-5",
@@ -570,6 +586,7 @@ export const blogCategory2 = [
         description:
           "Hồ Chí Minh nhà văn nhà thơ lớn. Sự nghiệp văn học của Người gắn liền với sự nghiệp cứu nước cứu dân. Ở Hồ Chí Minh, văn cũng tức là người. Văn thơ của Người phản ánh tâm hồn cao đẹp và cuộc đời vĩ đại của Người - một cuộc đời trọn đời vì nước, vì dân. Không tự coi mình là nhà văn nhà thơ, nhưng trên thực tế Hồ Chí Minh để lại di sản văn học vô cùng quý giá cho dân tộc và nhân loại...",
         image: "https://picsum.photos/543/361",
+        link: "#",
       },
       {
         id: "blog-6",
@@ -578,6 +595,7 @@ export const blogCategory2 = [
         description:
           "Hồ Chí Minh nhà văn nhà thơ lớn. Sự nghiệp văn học của Người gắn liền với sự nghiệp cứu nước cứu dân. Ở Hồ Chí Minh, văn cũng tức là người. Văn thơ của Người phản ánh tâm hồn cao đẹp và cuộc đời vĩ đại của Người - một cuộc đời trọn đời vì nước, vì dân. Không tự coi mình là nhà văn nhà thơ, nhưng trên thực tế Hồ Chí Minh để lại di sản văn học vô cùng quý giá cho dân tộc và nhân loại...",
         image: "https://picsum.photos/543/361",
+        link: "#",
       },
     ],
   },

@@ -1,6 +1,6 @@
 import React from "react";
 import Head from "next/head";
-import { DanhSachKyYeu, MainBackground } from "common/components/other";
+import { Banner, BannerDefault, DanhSachKyYeu } from "common/components/other";
 import { main_banner_without_button } from "mock/data";
 
 const a = [1, 2, 3, 4, 5, 6, 7];
@@ -14,7 +14,8 @@ const KyYeuThanhNienLamTheoLoiBac = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <MainBackground banner={main_banner_without_button} />
+      {/* <Banner /> */}
+      <BannerDefault />
       <DanhSachKyYeu />
     </div>
   );

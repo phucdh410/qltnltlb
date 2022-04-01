@@ -10,12 +10,12 @@ export default function SuspenseLoading() {
         open={true}
       >
         <div style={{ display: "flex", alignItems: "center" }}>
-          <Image
+          {/* <Image
             src="/assets/images/global/suspenseloading.webp"
             height="200"
             width="300"
             alt="Loading Image"
-          />
+          /> */}
           <CircularProgress
             sx={{
               height: "100px!important",
