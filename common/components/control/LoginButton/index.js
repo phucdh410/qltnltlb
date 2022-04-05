@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
-import { PropTypes } from "prop-types";
 import { AccountCircle } from "@mui/icons-material";
-import { Button, styled } from "@mui/material";
-import Link from "next/link";
+import { Avatar, Button, Menu, MenuItem, styled } from "@mui/material";
 import { LoginModal } from "common/components/other";
-import { shallowEqual, useSelector } from "react-redux";
+import { onLogout } from "store/actions/authAction";
+import { PropTypes } from "prop-types";
+import { shallowEqual, useDispatch, useSelector, useStore } from "react-redux";
+import { toast } from "react-toastify";
+import Link from "next/link";
 
 const LoginBtn = styled(Button)(({ theme }) => ({
   height: "100%",
@@ -32,10 +34,12 @@ const LoginBtn = styled(Button)(({ theme }) => ({
 }));
 
 const LoginButton = ({ label, className }) => {
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
-
+  const [open, setOpen] = useState(false); // Open modal login
+  const [anchorEl, setAnchorEl] = useState(null); // Xử lí dropdown options khi đã login
+  const openDropdown = Boolean(anchorEl); // Xử lí dropdown options khi đã login
+  //const logoutUser = useStore().getState.auth; // Lấy ra state mới nhất ngay sau khi dispatch logout
+  const [currentUser, setCurrentUser] = useState();
+  const dispatch = useDispatch();
   const { user } = useSelector(
     (state) => ({
       user: state.auth.user,
@@ -45,22 +49,59 @@ const LoginButton = ({ label, className }) => {
 
   useEffect(() => {
     if (user) {
-      console.log("Người dùng đã đăng nhập");
-    } else {
-      console.log("người dùng chưa đăng nhập");
+      setCurrentUser(user);
     }
   }, [user]);
+
+  const handleOpenLogin = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+  const handleCloseDropdown = () => {
+    setAnchorEl(null);
+  };
+  const handleLogout = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const logOut = async () => {
+    setAnchorEl(null);
+    await dispatch(onLogout());
+    toast.success("Đăng xuất thành công !");
+    setCurrentUser(undefined);
+  };
 
   return (
     <>
       <LoginBtn
         className={className}
         disableRipple
-        startIcon={<AccountCircle className="icon-login" />}
-        onClick={handleOpen}
+        startIcon={
+          currentUser?.avatar ? (
+            <Avatar src={currentUser.avatar} />
+          ) : (
+            <AccountCircle className="icon-login" />
+          )
+        }
+        onClick={currentUser ? handleLogout : handleOpenLogin}
+        id="basic-button"
+        aria-controls={openDropdown ? "basic-menu" : undefined}
+        aria-haspopup="true"
+        aria-expanded={openDropdown ? "true" : undefined}
       >
-        {label}
+        {currentUser?.fullname ? currentUser.fullname : label}
       </LoginBtn>
+      <Menu
+        id="basic-menu"
+        anchorEl={anchorEl}
+        open={openDropdown}
+        onClose={handleCloseDropdown}
+        MenuListProps={{
+          "aria-labelledby": "basic-button",
+        }}
+      >
+        <MenuItem onClick={handleCloseDropdown}>Thông tin cá nhân</MenuItem>
+        <MenuItem onClick={handleCloseDropdown}>Quản lí hoạt động</MenuItem>
+        <MenuItem onClick={logOut}>Đăng xuất</MenuItem>
+      </Menu>
       <LoginModal open={open} onClose={handleClose} />
     </>
   );

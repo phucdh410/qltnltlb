@@ -21,7 +21,7 @@ const ReadMoreButton = ({ url }) => {
   const router = useRouter();
 
   return (
-    <Link href={router.route + url} passHref>
+    <Link href={`/blogs/${url}`} passHref>
       <NewButton className="read-more-btn" variant="contained">
         xem thêm
       </NewButton>

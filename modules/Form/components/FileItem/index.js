@@ -24,7 +24,7 @@ const FileItem = ({ src, name, onDelete }) => {
       >
         {name}
       </p>
-      <button onClick={onDelete} style={styles}>
+      <button onClick={onDelete} style={styles} type="button">
         Xóa
       </button>
     </div>

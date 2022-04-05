@@ -1,7 +1,8 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Box } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import { FormItem, Label, UploadButton, FileItem } from "../";
+import { toast } from "react-toastify";
 
 const useStyles = makeStyles((theme) => ({
   DropFileInput: {
@@ -18,11 +19,17 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
-const UploadInput = () => {
+
+const maxSize = 10485760; // 10Mb dung lượng file tối đa upload cho 1 phần việc
+const UploadInput = ({ setFieldValue, name }) => {
   const classes = useStyles();
   const [filesList, setFilesList] = useState([]);
 
   const dragzoneRef = useRef(null);
+
+  useEffect(() => {
+    setFieldValue(name, filesList);
+  }, [filesList]);
 
   const onDragEnter = (e) => {
     console.log("enter");
@@ -42,23 +49,29 @@ const UploadInput = () => {
     console.log("drop");
     e.preventDefault();
     dragzoneRef.current.classList.remove("dragover");
-
     if (e.dataTransfer.files) {
       const newFiles = Object.values(e.dataTransfer.files);
       const updatedList = [...filesList, ...newFiles];
-      console.log(updatedList);
-      setFilesList(updatedList);
+      const sum = updatedList.reduce((prev, cur) => prev + cur.size, 0);
+      if (sum > maxSize) {
+        toast.error("Dung lượng file tối đa cho mỗi phần việc là 10Mb");
+      } else {
+        setFilesList(updatedList);
+      }
     }
   };
-
   const onFileChange = (e) => {
     const newFiles = Object.values(e.target.files);
     if (newFiles) {
       const updatedList = [...filesList, ...newFiles];
-      setFilesList(updatedList);
+      const sum = updatedList.reduce((prev, cur) => prev + cur.size, 0);
+      if (sum > maxSize) {
+        toast.error("Dung lượng file tối đa cho mỗi phần việc là 10Mb");
+      } else {
+        setFilesList(updatedList);
+      }
     }
   };
-
   const onDelete = (index) => {
     const updatedList = filesList.filter((e, i) => i !== index);
     setFilesList(updatedList);

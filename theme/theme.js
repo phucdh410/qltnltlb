@@ -7,6 +7,15 @@ const theme = createTheme({
         fullWidth: true,
       },
     },
+    MuiList: {
+      styleOverrides: {
+        root: {
+          "&.MuiMenu-list": {
+            maxHeight: "300px",
+          },
+        },
+      },
+    },
   },
   typography: {
     fontFamily: "Arial",

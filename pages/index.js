@@ -5,6 +5,7 @@ import { MainBackground } from "common/components/other/";
 import { getAll, getTop } from "utils/axios";
 import { SuspenseLoading } from "common/components/other";
 import { topics, diaries } from "mock/data";
+import axios from "axios";
 
 const DynamicTopics = dynamic(() => import("modules/Home/Topics"), {
   loading: () => <SuspenseLoading />,
@@ -19,24 +20,20 @@ const DynamicDiaries = dynamic(() => import("modules/Home/Diaries"), {
   loading: () => <SuspenseLoading />,
 });
 
-// export async function getServerSideProps() {
-//   const resTopics = await getAll("topics");
-//   const dataTopics = resTopics.data.data;
+export async function getServerSideProps() {
+  const resTopics = await getAll("topics");
+  const dataTopics = resTopics?.data?.data || null;
 
-//   const pinnedBlogs = await getTop("blogs");
-//   const dataPinBlogs = pinnedBlogs.data.data;
+  const pinnedBlogs = await getTop("blogs");
+  const dataPinBlogs = pinnedBlogs?.data?.data || null;
 
-//   const resDiaries = await getAll("diaries");
-//   const dataDiaries = resDiaries.data.data;
+  const resDiaries = await getAll("diaries");
+  const dataDiaries = resDiaries?.data?.data || null;
 
-//   return { props: { dataTopics, dataPinBlogs, dataDiaries } };
-// }
+  return { props: { dataTopics, dataPinBlogs, dataDiaries } };
+}
 
 export default function Home({ dataTopics, dataPinBlogs, dataDiaries }) {
-  // console.log(dataTopics);
-  // console.log(dataPinBlogs);
-  // console.log(dataDiaries);
-
   return (
     <div>
       <Head>
@@ -56,16 +53,16 @@ export default function Home({ dataTopics, dataPinBlogs, dataDiaries }) {
       <MainBackground />
 
       {/* Section Topics */}
-      <DynamicTopics topics={topics} />
+      <DynamicTopics />
 
       {/* Section Introduction */}
       <DynamicIntroduction />
 
       {/* Section Hot News */}
-      <DynamicHotNews />
+      <DynamicHotNews pinnedBlogs={dataPinBlogs} />
 
       {/* Section Diaries */}
-      <DynamicDiaries diaries={diaries} />
+      <DynamicDiaries diaries={dataDiaries} />
     </div>
   );
 }

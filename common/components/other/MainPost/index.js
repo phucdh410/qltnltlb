@@ -1,13 +1,11 @@
-import React, { forwardRef } from "react";
+import React from "react";
 import PropTypes from "prop-types";
+import Link from "next/link";
 
-const MainPost = forwardRef(
-  ({ onClick, href, image, title, description }, ref) => {
-    return (
+const MainPost = ({ href, image, title, description }) => {
+  return (
+    <Link href={href} passHref>
       <div
-        href={href}
-        ref={ref}
-        onClick={onClick}
         name="main-post"
         className="container-fluid px-0"
         style={{ marginBottom: "35px", cursor: "pointer" }}
@@ -29,10 +27,10 @@ const MainPost = forwardRef(
           </div>
         </div>
       </div>
-    );
-  }
-);
-MainPost.displayName = "Main Post";
+    </Link>
+  );
+};
+
 export default MainPost;
 
 MainPost.propTypes = {

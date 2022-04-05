@@ -23,9 +23,14 @@ const NewButton = styled(Button)(({ theme }) => ({
   },
 }));
 
-const SubmitButton = ({ label, onClick }) => {
+const SubmitButton = ({ label, type, onClick, disabled }) => {
   return (
-    <NewButton variant="contained" onClick={onClick}>
+    <NewButton
+      disabled={disabled}
+      type={type}
+      variant="contained"
+      onClick={onClick}
+    >
       {label}
     </NewButton>
   );
@@ -35,9 +40,13 @@ export default SubmitButton;
 
 SubmitButton.propTypes = {
   label: PropTypes.string,
+  type: PropTypes.string,
   onClick: PropTypes.func,
+  disabled: PropTypes.bool,
 };
 SubmitButton.defaultProps = {
   label: "Button",
+  type: "button",
   onClick: () => {},
+  disabled: false,
 };

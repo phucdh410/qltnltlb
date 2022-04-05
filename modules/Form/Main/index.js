@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { Box, styled, Tab, Tabs } from "@mui/material";
 import { DangKy, NopMinhChung, KetQua } from "modules/Form/";
+import { getAchievementFields } from "store/actions/achievementFieldsAction";
+import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import PropTypes from "prop-types";
 
 function TabPanel(props) {
@@ -69,11 +71,20 @@ const student = {
   id: "id_1",
   fullname: "Đặng Hoàng Phúc",
   major: "CNNT.C",
-  student_code: "41.01.104.094",
+  username: "41.01.104.094",
 };
 
-const Main = ({ children }) => {
+const Main = ({ student }) => {
+  const dispatch = useDispatch();
   const [value, setValue] = useState(0);
+
+  const handleGetAchievementItem = useCallback(async () => {
+    await dispatch(getAchievementFields());
+  }, []);
+
+  useEffect(() => {
+    handleGetAchievementItem();
+  }, [handleGetAchievementItem]);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);

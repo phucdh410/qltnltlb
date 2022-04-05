@@ -1,7 +1,7 @@
 .my-form {
   .todo-icon {
     &.delete-able {
-      transform: rotate(45deg);
+      color: red;
     }
   }
   @include form("mobile");

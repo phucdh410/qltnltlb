@@ -1,36 +1,35 @@
-import React, { forwardRef } from "react";
+import React from "react";
 import PropTypes from "prop-types";
+import Link from "next/link";
 
-const Post = forwardRef(({ onClick, href, image, title, description }, ref) => {
+const Post = ({ href, image, title, description }) => {
   return (
-    <div
-      href={href}
-      onClick={onClick}
-      ref={ref}
-      className="container-fluid px-0"
-      style={{ marginBottom: "35px", cursor: "pointer" }}
-      data-aos="fade-up"
-    >
-      <div className="row">
-        <div className="col-9 col-md-7 col-lg-4 col-xxl-5 mx-auto">
-          <div className="post-image">
-            <img src={image} alt="image" />
+    <Link href={href} passHref>
+      <div
+        className="container-fluid px-0"
+        style={{ marginBottom: "35px", cursor: "pointer" }}
+        data-aos="fade-up"
+      >
+        <div className="row">
+          <div className="col-9 col-md-7 col-lg-4 col-xxl-5 mx-auto">
+            <div className="post-image">
+              <img src={image} alt="image" />
+            </div>
           </div>
-        </div>
-        <div className="col-12 col-lg-8 col-xxl-7">
-          <div className="secondary-title-2">
-            <p>{title}</p>
-          </div>
-          <div className="secondary-text">
-            <p>{description}</p>
+          <div className="col-12 col-lg-8 col-xxl-7">
+            <div className="secondary-title-2">
+              <p>{title}</p>
+            </div>
+            <div className="secondary-text">
+              <p>{description}</p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
-});
+};
 
-Post.displayName = "Post";
 export default Post;
 
 Post.propTypes = {

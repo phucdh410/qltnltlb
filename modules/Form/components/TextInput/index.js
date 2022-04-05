@@ -19,15 +19,16 @@ export const Label = styled(InputLabel)(({ theme }) => ({
 export const Input = styled(OutlinedInput)(({ theme }) => ({
   padding: 0,
   fontSize: "20px",
-  fontWeight: 700,
+  fontWeight: 400,
   lineHeight: "40px",
   color: "#797A7E",
   borderRadius: "8px",
   "& .MuiOutlinedInput-notchedOutline": {
+    top: 0,
     border: `2px solid ${theme.palette.color.pink}`,
   },
   "& .MuiOutlinedInput-input": {
-    padding: "16px 10px",
+    padding: "10px 20px",
   },
   legend: {
     display: "none",

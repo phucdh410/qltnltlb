@@ -1,5 +1,6 @@
 import axios from "axios";
 import md5 from "md5";
+import { setAuthToken } from ".";
 
 const authInstance = axios.create({
   baseURL: "http://115.79.199.129:3000/",
@@ -40,20 +41,31 @@ export const onLogin = async (data, source) => {
     if (res?.status === 204) {
       return false;
     }
-    const user = await getUser(res.data.data.access_token);
-    return { token: { ...res.data.data }, user: { ...user.data } };
+    localStorage.setItem("token", res.data?.data?.access_token);
+    localStorage.setItem("refresh_token", res.data?.data?.refresh_token);
+
+    setAuthToken(res.data.data.access_token);
+
+    const user = await getUser();
+    return user.data;
   } catch (err) {
     console.log(err);
     return false;
   }
 };
 
-export const getUser = async (accessToken) => {
+export const getUser = async () => {
   try {
-    const res = await authInstance.post(`/users/profile`, {
-      headers: { "x-access-token": accessToken },
-    });
+    const token = localStorage.getItem("token");
+    const res = await authInstance.post(
+      `/users/profile`,
+      {},
+      {
+        headers: { "x-access-token": token },
+      }
+    );
     if (res?.data) {
+      setAuthToken(token);
       return res.data;
     }
     return null;

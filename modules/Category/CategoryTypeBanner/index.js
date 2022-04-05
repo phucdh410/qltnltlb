@@ -17,7 +17,9 @@ const CategoryTypeBanner = ({ tagBanners }) => {
                   <div className={`col-11 col-md-8 col-lg-${e.size} mx-auto`}>
                     <div
                       className="tag-banner"
-                      style={{ backgroundImage: `url(${e.image})` }}
+                      style={{
+                        backgroundImage: `url(${encodeURI(e.image)})`,
+                      }}
                       alt="tag-banner-image"
                       data-aos="fade-up"
                       data-aos-offset="20"

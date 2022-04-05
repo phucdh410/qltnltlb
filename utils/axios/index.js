@@ -1,7 +1,11 @@
 import axios from "axios";
-import { headers } from "next.config";
 
 let source = axios.CancelToken.source();
+
+const headers = {
+  "x-access-token":
+    "H0xCg8e2ITmEgyERQkxnwQRRprGqIzqIaQAyB2iS2do.9NjN5YTMzETN2EjOiAHelJCLzYTO0IzN4QjNxojI0FWaiwiIulWbkFkclBXdTJiOiUWbh5Ec19mcnJCL5kTO6ICeh1EblZXZsJCLiUDNmJGNhVGMyMTM2UWYmFDO1UzY1MzY1IiOiQWafJye.eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9",
+};
 
 export const JsonHeader = { "Content-Type": "application/json" };
 export const FormHeader = { "Content-Type": "multipart/form-data" };
@@ -16,11 +20,23 @@ export const cancel = async () => {
 };
 
 // Request api: method = get
-const getAll = async (path, page = 1, limit = 10, options = { headers }) => {
+const getAll = async (
+  path,
+  page = 1,
+  limit = 1000000000,
+  options = { headers }
+) => {
   try {
     const res = await axios.get(
       `/v1/${path}/getAll?cols=_id&sBy=sortOrder&sType=ASC&page=${page}&limit=${limit}`,
-      { ...options, cancelToken: source.token }
+      {
+        ...options,
+        cancelToken: source.token,
+        headers: {
+          "x-access-token":
+            "H0xCg8e2ITmEgyERQkxnwQRRprGqIzqIaQAyB2iS2do.9NjN5YTMzETN2EjOiAHelJCLzYTO0IzN4QjNxojI0FWaiwiIulWbkFkclBXdTJiOiUWbh5Ec19mcnJCL5kTO6ICeh1EblZXZsJCLiUDNmJGNhVGMyMTM2UWYmFDO1UzY1MzY1IiOiQWafJye.eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9",
+        },
+      }
     );
     return res.data;
   } catch (err) {
@@ -31,7 +47,28 @@ const getAll = async (path, page = 1, limit = 10, options = { headers }) => {
     return null;
   }
 };
-
+const getAllByYear = async (
+  path,
+  year = 2022,
+  page = 1,
+  limit = 1000000000
+) => {
+  try {
+    const res = await axios.get(
+      `/v1/${path}/getAll?sBy=_id&sType=ASC&page=${page}&limit=${limit}&year=${year}`,
+      {
+        ...options,
+      }
+    );
+    return res.data;
+  } catch (err) {
+    if (err?.response?.status === 401) {
+    }
+    // => Logout
+    //   logoutUser(() => (window.location = "/login"))(store.dispatch);
+    return null;
+  }
+};
 const getById = async (path, id, options = { headers }) => {
   try {
     const res = await axios.get(`/v1/${path}/getById/${id}`, {
@@ -56,11 +93,11 @@ const getBySlug = async (path, slug, options = { headers }) => {
   }
 };
 
-const getTop = async (path, page = 1, limit = 10, options = { headers }) => {
+const getTop = async (path, page = 1, limit = 100, options = { headers }) => {
   try {
     const res = await axios.get(
-      `/v1/${path}/getTopNews?cols=_id&sBy=sortOrder&sType=ASC&page=${page}&limit=${limit}`,
-      { ...options, cancelToken: source.token }
+      `/v1/${path}/getTopNews?sBy=&sType=&page=${page}&limit=${limit}`,
+      { ...options, cancelToken: source.token, headers }
     );
     return res.data;
   } catch (err) {
@@ -111,6 +148,7 @@ const setAuthToken = (token) => {
 export {
   setAuthToken,
   getAll,
+  getAllByYear,
   getById,
   getBySlug,
   getByTopicId,

@@ -18,7 +18,6 @@ const useStyles = makeStyles((theme) => ({
 // status = 2 => Chưa nộp minh chứng
 // status = 3 => Đã hoàn thành
 const Result = ({ status }) => {
-  console.log(status);
   // Nhận prop là type mô tả trạng thái hiện tại của phần việc
   const classes = useStyles();
   return (

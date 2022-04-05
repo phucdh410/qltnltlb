@@ -68,7 +68,7 @@ const ImageSlider = ({ description, blogs, title, url }) => {
           {blogs &&
             blogs.length > 0 &&
             blogs.map((blog) => (
-              <div key={blog.id} className="image-item">
+              <div key={blog._id} className="image-item">
                 <img src={blog.image} alt={blog.title} />
               </div>
             ))}

@@ -1,10 +1,5 @@
-import {
-  Box,
-  FormHelperText,
-  InputLabel,
-  OutlinedInput,
-  styled,
-} from "@mui/material";
+import { useState } from "react";
+import { Box, InputLabel, OutlinedInput, styled, Tooltip } from "@mui/material";
 import PropTypes from "prop-types";
 
 export const FormItem = styled(Box)(({ theme }) => ({
@@ -30,8 +25,8 @@ export const Input = styled(OutlinedInput)(({ theme }) => ({
   color: "#797A7E",
   borderRadius: "8px",
   "& .MuiOutlinedInput-notchedOutline": {
-    border: `2px solid ${theme.palette.color.pink}`,
     top: 0,
+    border: `2px solid ${theme.palette.color.pink}`,
   },
   "& .MuiOutlinedInput-input": {
     padding: "10px 20px",
@@ -40,48 +35,51 @@ export const Input = styled(OutlinedInput)(({ theme }) => ({
     display: "none",
   },
 }));
-const MultilineInput = ({
+const NumberInput = ({
   id,
   name,
+  label,
+  value,
   onChange,
   onBlur,
-  value,
-  label,
-  rows,
   errors,
   helperText,
-  readOnly,
 }) => {
+  const minValue = 2022;
+  const maxValue = 2072;
+
   return (
     <FormItem className="row form-item">
-      <div className="col-12 col-md-3">
+      <div className="col-12 col-md-2">
         <Label className="form-label">{label}</Label>
       </div>
-      <div className="col-12">
-        <Input
-          className="form-input"
-          readOnly={readOnly}
-          multiline
-          rows={rows}
-          id={id}
-          name={name}
-          onChange={onChange}
-          onBlur={onBlur}
-          value={value}
-          error={errors}
-        />
-        <FormHelperText error>{helperText}</FormHelperText>
+      <div className="col-3 col-md-3">
+        <Tooltip
+          open={errors || false}
+          title={helperText || ""}
+          disableHoverListener
+          arrow
+        >
+          <Input
+            className="form-input"
+            type="number"
+            inputProps={{ min: minValue, max: maxValue }}
+            id={id}
+            name={name}
+            value={value}
+            onChange={onChange}
+            onBlur={onBlur}
+          />
+        </Tooltip>
       </div>
     </FormItem>
   );
 };
 
-export default MultilineInput;
-MultilineInput.propTypes = {
+export default NumberInput;
+NumberInput.propTypes = {
   label: PropTypes.string,
-  rows: PropTypes.number,
 };
-MultilineInput.defaultProps = {
+NumberInput.defaultProps = {
   label: "Label",
-  rows: 4,
 };

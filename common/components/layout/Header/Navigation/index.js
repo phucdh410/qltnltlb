@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import axios from "axios";
 import { getAll } from "utils/axios";
+import { shallowEqual, useSelector } from "react-redux";
 
 const TabsNav = styled(Tabs)(({ theme }) => ({
   height: "100%",
@@ -88,10 +89,17 @@ const topics = [
 const Navigation = () => {
   const router = useRouter();
   const [value, setValue] = useState("");
+  const { topics } = useSelector(
+    (state) => ({
+      topics: state.topic.topics,
+    }),
+    shallowEqual
+  );
 
   const handleFindRoute = () => {
     topics.forEach((e) => {
       if (router.pathname.includes(e.slug)) {
+        console.log(e.slug);
         setValue(e.slug);
       }
     });
@@ -166,7 +174,7 @@ const Navigation = () => {
               }
               className="tab-item"
             />
-            {/* {topics &&
+            {topics &&
               topics.length > 0 &&
               topics.slice(0, 3).map((topic) => (
                 <TabItem
@@ -179,8 +187,8 @@ const Navigation = () => {
                   }
                   className="tab-item"
                 />
-              ))} */}
-            {topics &&
+              ))}
+            {/* {topics &&
               topics.length > 0 &&
               topics.slice(0, 3).map((topic) => (
                 <TabItem
@@ -193,7 +201,7 @@ const Navigation = () => {
                   }
                   className="tab-item"
                 />
-              ))}
+              ))} */}
           </TabsNav>
         </div>
       </div>

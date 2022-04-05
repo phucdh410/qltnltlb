@@ -23,7 +23,25 @@ export const TodoLabel = styled(Typography)(({ theme }) => ({
 // formType = 1 => form nộp minh chứng
 // formType = 2 => form kết quả
 
-const TodoItem = ({ index, formType, status, onClick }) => {
+const TodoItem = ({
+  index,
+  formType,
+  status,
+  achievementFields,
+  onClick,
+  onChange,
+  onBlur,
+  idFieldId,
+  nameFieldId,
+  valueFieldId,
+  idContent,
+  nameContent,
+  valueContent,
+  nameFiles,
+  errors,
+  helperText,
+  setFieldValue,
+}) => {
   let number = "";
   const text = ["nhất", "hai", "ba"];
   for (var i = 0; i < text.length; i++) {
@@ -32,7 +50,6 @@ const TodoItem = ({ index, formType, status, onClick }) => {
       break;
     }
   }
-
   return (
     <>
       <FormItem className="row form-item">
@@ -40,26 +57,53 @@ const TodoItem = ({ index, formType, status, onClick }) => {
           <TodoLabel className="todo-label">{`Phần việc thứ ${number}`}</TodoLabel>
         </div>
         <div className="col-2" style={{ textAlign: "right" }}>
-          <svg
-            onClick={onClick}
-            className={`todo-icon ${index !== 0 && "delete-able"}`}
-            viewBox="0 0 42 42"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M21 0.166016C9.49996 0.166016 0.166626 9.49935 0.166626 20.9994C0.166626 32.4994 9.49996 41.8327 21 41.8327C32.5 41.8327 41.8333 32.4994 41.8333 20.9994C41.8333 9.49935 32.5 0.166016 21 0.166016ZM31.4166 23.0827H23.0833V31.416H18.9166V23.0827H10.5833V18.916H18.9166V10.5827H23.0833V18.916H31.4166V23.0827Z"
-              fill="#A000A2"
-            />
-          </svg>
+          {index !== 0 ? (
+            <i
+              className="fa-solid fa-circle-minus todo-icon delete-able"
+              onClick={onClick}
+            ></i>
+          ) : (
+            <svg
+              onClick={onClick}
+              className="todo-icon"
+              viewBox="0 0 42 42"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M21 0.166016C9.49996 0.166016 0.166626 9.49935 0.166626 20.9994C0.166626 32.4994 9.49996 41.8327 21 41.8327C32.5 41.8327 41.8333 32.4994 41.8333 20.9994C41.8333 9.49935 32.5 0.166016 21 0.166016ZM31.4166 23.0827H23.0833V31.416H18.9166V23.0827H10.5833V18.916H18.9166V10.5827H23.0833V18.916H31.4166V23.0827Z"
+                fill="#A000A2"
+              />
+            </svg>
+          )}
         </div>
       </FormItem>
 
       {/* Truyền prop options là danh sách dropdown */}
-      <DropdownInput label="Lĩnh vực" />
-      <MultilineInput label="Nội dung đăng ký" />
+      <DropdownInput
+        id={idFieldId}
+        name={nameFieldId}
+        value={valueFieldId}
+        onChange={onChange}
+        options={achievementFields}
+        readOnly={formType !== 0}
+        label="Lĩnh vực"
+      />
+      <MultilineInput
+        label="Nội dung đăng ký"
+        readOnly={formType !== 0}
+        id={idContent}
+        name={nameContent}
+        value={valueContent}
+        onChange={onChange}
+        onBlur={onBlur}
+        errors={errors}
+        helperText={helperText}
+      />
 
-      {formType === 1 ? <UploadInput /> : null}
+      {formType === 1 ? (
+        <UploadInput setFieldValue={setFieldValue} name={nameFiles} />
+      ) : null}
       {formType === 2 ? <Result status={status} /> : null}
     </>
   );

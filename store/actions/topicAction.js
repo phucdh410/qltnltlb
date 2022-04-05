@@ -3,6 +3,6 @@ import { getAll } from "utils/axios";
 
 export const onGetTopics = () => async (dispatch) => {
   const res = await getAll("topics");
-  const payload = res.data;
+  const payload = res?.data || null;
   dispatch({ type: GET_TOPICS, payload });
 };

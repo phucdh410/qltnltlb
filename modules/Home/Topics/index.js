@@ -6,8 +6,13 @@ import Link from "next/link";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import { useSelector } from "react-redux";
 
-const Topics = ({ topics }) => {
+const Topics = () => {
+  const { topics } = useSelector((state) => ({
+    topics: state.topic.topics,
+  }));
+
   const [limitShow, setLimitShow] = useState(3);
 
   const handleScreenWidth = useCallback((width) => {
@@ -55,10 +60,10 @@ const Topics = ({ topics }) => {
               modules={[Pagination]}
               className="mySwiper"
             >
-              {topics.length > 0 &&
+              {topics?.length > 0 &&
                 topics.map((topic, i) => (
                   <SwiperSlide key={i}>
-                    <Link href={topic.slug} passHref>
+                    <Link href={`topic/${topic.slug}`} passHref>
                       <div
                         className="slide-item"
                         style={{ backgroundImage: `url(${topic.image})` }}

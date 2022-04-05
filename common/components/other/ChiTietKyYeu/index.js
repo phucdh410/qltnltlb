@@ -76,7 +76,8 @@ const ChiTietKyYeu = ({ avatar, fullname, department, achievement, id }) => {
                   <img src={avatar} alt={fullname} />
                 </div>
               </div>
-              <div className="col-12 col-sm-12 col-md-7 col-lg-7 col-xl-6 col-xxl-8">
+              <div className="col-xxl-1 px-0"></div>
+              <div className="col-12 col-sm-12 col-md-7 col-lg-6 col-xl-6 col-xxl-7">
                 <MainInfo className="student-main-info">{fullname}</MainInfo>
                 <MainInfo className="student-main-info">{department}</MainInfo>
                 <AchieveLabel className="student-achievement-label">
@@ -85,7 +86,7 @@ const ChiTietKyYeu = ({ avatar, fullname, department, achievement, id }) => {
                 {achievement &&
                   achievement.length > 0 &&
                   achievement.map((achive) => (
-                    <div key={achive.id} style={{ marginBottom: "40px" }}>
+                    <div key={achive.id} style={{ marginBottom: "54px" }}>
                       <Year className="student-year">{`Năm ${achive.year}`}</Year>
                       <AchieveBox className="student-achievement-box">
                         {achive.content.split("\n").map((content, i) => (

@@ -22,7 +22,7 @@ const DanhSachBaiViet = () => {
               <div className="primary-title">
                 <p>Danh sách bài viết</p>
               </div>
-              <div className="row">
+              <div className="row list-posts">
                 {a.map((post, i) =>
                   i === 0 ? (
                     <div className="col-12 px-0">

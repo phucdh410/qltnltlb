@@ -1,14 +1,12 @@
 import React, { useCallback, useState } from "react";
-import axios from "axios";
-import { Button, Modal } from "@mui/material";
-import * as yup from "yup";
-import { useFormik } from "formik";
-import { TextField } from "@mui/material";
+import { Button, Modal, TextField } from "@mui/material";
 import { makeStyles } from "@mui/styles";
+import { onUserLogin } from "store/actions/authAction";
 import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
-import { onLogin } from "utils/axios/auth";
-import { onUserLogin } from "store/actions/authAction";
+import { useFormik } from "formik";
+import * as yup from "yup";
+import axios from "axios";
 
 const useStyles = makeStyles((theme) => ({
   LoginInput: {
@@ -45,9 +43,9 @@ const LoginModal = ({ open, onClose }) => {
   const [loading, setLoading] = useState(false);
 
   // Account test
-  // username: "admin"
-  // password: "12345"
-  // fcmToken: "12345"
+  // username: "admin"    // username: "44.01.103.004"
+  // password: "12345"    // password: "12345"
+  // fcmToken: "12345"    // fcmToken: "12345"
   const handleLogin = useCallback(async (values) => {
     setLoading(true);
     const data = { ...values, fcmToken: "12345" };
@@ -58,6 +56,7 @@ const LoginModal = ({ open, onClose }) => {
         password: "Sai tên đăng nhập hoặc mật khẩu",
       });
     } else {
+      formik.resetForm();
       toast.success("Đăng nhập thành công");
       onClose();
     }

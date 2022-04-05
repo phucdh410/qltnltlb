@@ -9,6 +9,7 @@ import FormContainer from "./FormContainer";
 import FormItem from "./FormItem";
 import Label from "./Label";
 // Inputs
+import NumberInput from "./NumberInput";
 import TextInput from "./TextInput";
 import MultilineInput from "./MultilineInput";
 import DropdownInput from "./DropdownInput";
@@ -27,6 +28,7 @@ export {
   FormItem,
   Label,
   //
+  NumberInput,
   TextInput,
   MultilineInput,
   DropdownInput,

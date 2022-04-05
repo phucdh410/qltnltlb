@@ -19,7 +19,6 @@ const DynamicBlogCategory = dynamic(
 const TopicDetail = ({ topic, banners, blogCategories }) => {
   const router = useRouter();
 
-  console.log(router.query);
   // console.log(topic);
   // console.log(banners);
   // console.log(blogCategories);
@@ -30,12 +29,9 @@ const TopicDetail = ({ topic, banners, blogCategories }) => {
         <title>{topic?.name || "Trang topic"}</title>
       </Head>
 
-      {console.log(blogCategories)}
-
       <main>
         <MainBackground banners={banners} />
 
-        {console.log(blogCategories[0][0])}
         {blogCategories?.length > 0 &&
           blogCategories.map((blogCategoryGroup, i) =>
             blogCategoryGroup[0].type === "banner" ? (
@@ -62,7 +58,6 @@ export const getServerSideProps = async ({ params }) => {
   const resTopic = await getBySlug("topics", params.slug);
   if (resTopic?.data) {
     const topic = resTopic.data;
-    console.log(topic);
     topicProps = { ...topicProps, topic };
 
     const resBanner = await getByTopicId("banners", topic._id);
