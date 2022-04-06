@@ -3,7 +3,7 @@ import md5 from "md5";
 import { setAuthToken } from ".";
 
 const authInstance = axios.create({
-  baseURL: "http://115.79.199.129:3000/",
+  baseURL: "https://hcmue-tnltlb.vtcode.vn:3000/",
   timeout: 5000,
   headers: {
     "Content-Type": "application/json",
