@@ -9,9 +9,8 @@ const UploadButton = ({ onFileAdd }) => {
     <label style={{ color: "#797A7E", marginLeft: "20px" }}>
       <Input
         onChange={onFileAdd}
-        accept="image/*"
+        accept="image/*,.pdf"
         id="contained-button-file"
-        multiple
         type="file"
       />
       <Button

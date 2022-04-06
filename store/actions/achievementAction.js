@@ -1,7 +1,7 @@
-import { CREATE_ACHIEVEMENT } from "store/type";
+import { CREATE_ACHIEVEMENT, GET_ACHIEVEMENT } from "store/type";
 import axios from "axios";
 import { toast } from "react-toastify";
-import { getAllByYear } from "utils/axios";
+import { getByUserId } from "utils/axios";
 
 export const createAchievement = (body) => async (dispatch) => {
   try {
@@ -11,7 +11,6 @@ export const createAchievement = (body) => async (dispatch) => {
     }
   } catch (error) {
     if (error?.response?.status === 401) {
-      alert("Bạn cần phải đăng nhập để thực hiện chức năng này");
       window.location("/");
     }
     if (error?.response?.data?.errorCode === 1001) {
@@ -22,8 +21,14 @@ export const createAchievement = (body) => async (dispatch) => {
 
 export const getAchievement = (year) => async (dispatch) => {
   try {
-    const res = await getAllByYear("achievement", year);
-    console.log(res);
+    const res = await getByUserId("achievement", year);
+    if (res?.data) {
+      const payload = res?.data;
+      dispatch({ type: GET_ACHIEVEMENT, payload });
+    } else {
+      const payload = res;
+      dispatch({ type: GET_ACHIEVEMENT, payload });
+    }
   } catch (error) {
     console.log(error);
   }

@@ -19,7 +19,7 @@ const PhanViecLamTheoLoiBac = () => {
     const getUserInfo = async () => {
       const userInfo = await getUser();
       if (!userInfo?.data) {
-        return router.back();
+        // return router.back();
       }
     };
     getUserInfo();

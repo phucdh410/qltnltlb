@@ -47,26 +47,20 @@ const getAll = async (
     return null;
   }
 };
-const getAllByYear = async (
-  path,
-  year = 2022,
-  page = 1,
-  limit = 1000000000
-) => {
+const getByUserId = async (path, year) => {
   try {
-    const res = await axios.get(
-      `/v1/${path}/getAll?sBy=_id&sType=ASC&page=${page}&limit=${limit}&year=${year}`,
-      {
-        ...options,
-      }
-    );
+    const res = await axios.get(`/v1/${path}/getByUserId/${year}`);
+    if (res?.status === 204) {
+      return [];
+    }
     return res.data;
   } catch (err) {
+    console.log(err);
     if (err?.response?.status === 401) {
     }
     // => Logout
     //   logoutUser(() => (window.location = "/login"))(store.dispatch);
-    return null;
+    return [];
   }
 };
 const getById = async (path, id, options = { headers }) => {
@@ -148,7 +142,7 @@ const setAuthToken = (token) => {
 export {
   setAuthToken,
   getAll,
-  getAllByYear,
+  getByUserId,
   getById,
   getBySlug,
   getByTopicId,

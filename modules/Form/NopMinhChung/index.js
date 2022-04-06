@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useCallback, useEffect } from "react";
 import {
   DropdownInput,
   FormContainer,
@@ -8,7 +8,8 @@ import {
 } from "../components";
 import * as yup from "yup";
 import { useFormik } from "formik";
-import { shallowEqual, useSelector } from "react-redux";
+import { shallowEqual, useDispatch, useSelector } from "react-redux";
+import { getAchievement } from "store/actions/achievementAction";
 
 const years = [];
 for (let i = 2022; i <= 2072; i++) {
@@ -32,69 +33,40 @@ const validationSchema = yup.object({
     .required(),
 });
 
-const data = [
-  {
-    year: 2022,
-    dataJson: [
-      {
-        fieldId: "623d92e8647f1b42e0bdff7e",
-        content: "Nội dung đã đăng ký 1",
-        files: [{}],
-      },
-      {
-        fieldId: "624686c94144742ebc9736f4",
-        content: "Nội dung đã đăng ký 2",
-        files: [{}],
-      },
-    ],
-  },
-  {
-    year: 2023,
-    dataJson: [
-      {
-        fieldId: "623d92e8647f1b42e0bdff7e",
-        content: "Nội dung đã đăng ký 1",
-        files: [{}],
-      },
-      {
-        fieldId: "624686c94144742ebc9736f4",
-        content: "Nội dung đã đăng ký 2",
-        files: [{}],
-      },
-      {
-        fieldId: "623d92e8647f1b42e0bdff7e",
-        content: "Nội dung đã đăng ký 3",
-        files: [{}],
-      },
-    ],
-  },
-];
-
 const NopMinhChung = ({ student }) => {
+  const dispatch = useDispatch();
+
   const { fullname, majorName, username } = student;
-  const { achievementFields } = useSelector(
+  const { achievementFields, achievements } = useSelector(
     (state) => ({
       achievementFields: state.achievementField.achievementFields,
+      achievements: state.achievement.achievements,
     }),
     shallowEqual
   );
 
   const formik = useFormik({
     initialValues: {
-      year: data[0].year,
-      dataJson: data[0].dataJson,
+      year: 2022,
+      dataJson: [],
     },
     validationSchema,
     onSubmit: () => console.log(formik.values),
   });
   const { setFieldValue } = formik;
+  const onGetAchievement = useCallback(() => {
+    dispatch(getAchievement(formik.values.year));
+  }, [dispatch, formik.values.year]);
+
   useEffect(() => {
-    const newValue = data.reduce(
-      (prev, cur) => (cur.year === formik.values.year ? cur.dataJson : prev),
-      []
-    );
-    setFieldValue("dataJson", newValue);
-  }, [formik.values.year]);
+    onGetAchievement();
+  }, [formik.values.year, onGetAchievement]);
+
+  useEffect(() => {
+    if (achievements) {
+      setFieldValue("dataJson", achievements);
+    }
+  }, [achievements, setFieldValue]);
 
   return (
     <FormContainer title="Minh chứng phần việc làm theo lời Bác">
@@ -134,6 +106,7 @@ const NopMinhChung = ({ student }) => {
               valueFiles={formik.values.dataJson[index].files}
               setFieldValue={setFieldValue}
               dataJson={formik.values.dataJson}
+              achievementId={todoItem._id}
             />
           ))
         ) : (

@@ -9,7 +9,11 @@ const achievementReducer = (state = initialState, action) => {
     case CREATE_ACHIEVEMENT:
       return action.payload;
     case GET_ACHIEVEMENT:
-      return action.payload;
+      return {
+        ...state,
+        achievements: action.payload,
+      };
+
     default:
       return state;
   }

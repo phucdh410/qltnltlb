@@ -4,59 +4,38 @@ import PropTypes from "prop-types";
 import { useRouter } from "next/router";
 
 const MainInfo = styled(Typography)(({ theme }) => ({
-  fontSize: "48px",
   fontWeight: 700,
   fontFamily: "Arial",
-  lineHeight: "55px",
   textAlign: "left",
   color: theme.palette.color.kyyeuTitle,
-  marginBottom: "20px",
 }));
 const AchieveLabel = styled(Typography)(({ theme }) => ({
   backgroundColor: theme.palette.color.pink,
   color: theme.palette.color.white,
-  borderRadius: "13px",
-  fontSize: "32px",
   fontWeight: 700,
   fontFamily: "Arial",
-  lineHeight: "45px",
   display: "inline-block",
-  padding: "20px 30px",
-  marginBottom: "20px",
   textTransform: "uppercase",
 }));
 const Year = styled(Typography)(({ theme }) => ({
   fontFamily: "Arial",
-  fontSize: "42px",
   fontWeight: 700,
-  lineHeight: "48px",
   color: theme.palette.color.kyyeuYear,
-  borderLeft: "20px solid",
-  paddingLeft: "20px",
-  marginBottom: "20px",
 }));
 const AchieveBox = styled(Box)(({ theme }) => ({
   backgroundColor: theme.palette.color.kyyeuDetailBg,
-  padding: "20px",
 }));
 const AchieveContent = styled(Typography)(({ theme }) => ({
   color: theme.palette.color.kyyeuText,
-  fontSize: "30px",
-  lineHeight: "34.5px",
   fontFamily: "Arial",
   fontWeight: 400,
-  padding: "20px 25px",
 }));
 const BackButton = styled(Button)(({ theme }) => ({
   fontFamily: "Arial",
-  fontSize: "32px",
-  lineHeight: "45px",
   fontWeight: 700,
   backgroundColor: theme.palette.color.pink,
   color: theme.palette.color.white,
-  marginLeft: "auto",
-  marginRight: "auto",
-  padding: "30px",
+  margin: "auto",
 }));
 
 const ChiTietKyYeu = ({ avatar, fullname, department, achievement, id }) => {
@@ -66,12 +45,12 @@ const ChiTietKyYeu = ({ avatar, fullname, department, achievement, id }) => {
   };
 
   return (
-    <div className="section-wrap">
+    <div className="section-wrap large">
       <div className="container-fluid">
         <div className="row">
           <div className="col-11 mx-auto">
             <div className="row student-detail">
-              <div className="col-7 col-sm-12 col-md-5 col-lg-5 col-xl-6 col-xxl-4 mx-auto">
+              <div className="col-8 col-sm-12 col-md-5 col-lg-5 col-xl-6 col-xxl-4 mx-auto">
                 <div className="student-avatar">
                   <img src={avatar} alt={fullname} />
                 </div>
@@ -86,7 +65,7 @@ const ChiTietKyYeu = ({ avatar, fullname, department, achievement, id }) => {
                 {achievement &&
                   achievement.length > 0 &&
                   achievement.map((achive) => (
-                    <div key={achive.id} style={{ marginBottom: "54px" }}>
+                    <div key={achive.id} style={{ marginBottom: "70px" }}>
                       <Year className="student-year">{`Năm ${achive.year}`}</Year>
                       <AchieveBox className="student-achievement-box">
                         {achive.content.split("\n").map((content, i) => (

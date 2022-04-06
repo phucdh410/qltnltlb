@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useCallback, useState } from "react";
 import { Article, Print } from "@mui/icons-material";
 import axios from "axios";
 import fileDownload from "js-file-download";
@@ -8,13 +8,13 @@ import {
   FormContainer,
   FormItem,
   Label,
-  NumberInput,
   TextInput,
   TodoItem,
 } from "../components";
 import * as yup from "yup";
 import { useFormik } from "formik";
-import { shallowEqual, useSelector } from "react-redux";
+import { shallowEqual, useDispatch, useSelector } from "react-redux";
+import { getAchievement } from "store/actions/achievementAction";
 
 const years = [];
 for (let i = 2022; i <= 2072; i++) {
@@ -81,34 +81,41 @@ const data = [
 ];
 
 const KetQua = ({ student }) => {
+  const dispatch = useDispatch();
+  const [done, setDone] = useState(0);
   const { fullname, majorName, username } = student;
-  const { achievementFields } = useSelector(
+  const { achievementFields, achievements } = useSelector(
     (state) => ({
       achievementFields: state.achievementField.achievementFields,
+      achievements: state.achievement.achievements,
     }),
     shallowEqual
   );
   const formik = useFormik({
     initialValues: {
-      year: data[0].year,
-      dataJson: data[0].dataJson,
+      year: 2022,
+      dataJson: [],
     },
     validationSchema,
     onSubmit: () => console.log(formik.values),
   });
   const { setFieldValue } = formik;
-  useEffect(() => {
-    const newValue = data.reduce(
-      (prev, cur) => (cur.year === formik.values.year ? cur.dataJson : prev),
-      []
-    );
-    setFieldValue("dataJson", newValue);
-  }, [formik.values.year]);
+  const onGetAchievement = useCallback(() => {
+    dispatch(getAchievement(formik.values.year));
+  }, [dispatch, formik.values.year]);
 
-  const finalResultDemo = formik.values.dataJson.reduce(
-    (prev, cur) => (cur.finish === true ? ++prev : prev),
-    0
-  );
+  useEffect(() => {
+    onGetAchievement();
+  }, [formik.values.year, onGetAchievement]);
+
+  useEffect(() => {
+    if (achievements) {
+      setFieldValue("dataJson", achievements);
+      let tmp = 0;
+      achievements.forEach((e) => (e.approved === 2 ? ++tmp : tmp));
+      setDone(tmp);
+    }
+  }, [achievements, setFieldValue]);
 
   const onPrint = () => {
     console.log("In giấy chứng nhận");
@@ -159,18 +166,21 @@ const KetQua = ({ student }) => {
             idContent={`dataJson.${index}.content`}
             nameContent={`dataJson.${index}.content`}
             valueContent={formik.values.dataJson[index].content}
+            valueApproved={formik.values.dataJson[index].approved}
           />
         ))
       ) : (
         <h1>Năm này bạn chưa đăng ký phần việc</h1>
       )}
-      <FormItem>
-        <div className="col-12">
-          <Label className="form-label" sx={{ color: "#797A7E" }}>
-            {`Đã hoàn thành ${finalResultDemo} / ${formik.values.dataJson.length} phần việc đã đăng ký`}
-          </Label>
-        </div>
-      </FormItem>
+      {formik.values.dataJson.length > 0 && (
+        <FormItem>
+          <div className="col-12">
+            <Label className="form-label" sx={{ color: "#797A7E" }}>
+              {`Đã hoàn thành ${done} / ${formik.values.dataJson.length} phần việc đã đăng ký`}
+            </Label>
+          </div>
+        </FormItem>
+      )}
 
       <img
         id="giay-chung-nhan"

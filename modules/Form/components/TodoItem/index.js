@@ -41,6 +41,8 @@ const TodoItem = ({
   errors,
   helperText,
   setFieldValue,
+  valueApproved,
+  achievementId,
 }) => {
   let number = "";
   const text = ["nhất", "hai", "ba"];
@@ -104,7 +106,7 @@ const TodoItem = ({
       {formType === 1 ? (
         <UploadInput setFieldValue={setFieldValue} name={nameFiles} />
       ) : null}
-      {formType === 2 ? <Result status={status} /> : null}
+      {formType === 2 ? <Result approved={valueApproved} /> : null}
     </>
   );
 };

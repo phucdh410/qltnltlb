@@ -1,4 +1,4 @@
-import { LOGIN, LOGOUT } from "store/type";
+import { GET_ACHIEVEMENT, LOGIN, LOGOUT } from "store/type";
 import { onLogin } from "utils/axios/auth";
 
 export const onUserLogin = (data) => async (dispatch) => {
@@ -15,6 +15,7 @@ export const onUserLogin = (data) => async (dispatch) => {
 export const onLogout = () => async (dispatch) => {
   const payload = {};
   dispatch({ type: LOGOUT, payload });
+  dispatch({ type: GET_ACHIEVEMENT, payload: [] });
   localStorage.removeItem("token");
   localStorage.removeItem("refresh_token");
 };

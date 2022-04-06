@@ -11,9 +11,95 @@
       width: 100%;
     }
   }
-  @include chiTietKyYeu("mobile");
+  @include breakpoint("mobile") {
+    .student-avatar {
+      img {
+        box-shadow: 6.27497px 5.5499px 17.6874px rgb(229 91 230 / 50%);
+        border-radius: 16px;
+      }
+    }
+    .student-main-info {
+      font-size: 28px;
+      line-height: 26px;
+      margin-bottom: 20px;
+      &:nth-of-type(2) {
+        margin-bottom: 40px;
+      }
+    }
+    .student-achievement-label {
+      padding: 8px 16px;
+      font-size: 20px;
+      margin-bottom: 40px;
+      border-radius: 10px;
+    }
+    .student-year {
+      font-size: 22px;
+      line-height: 36px;
+      border-left-width: 10px;
+      padding-left: 10px;
+    }
+    .student-achievement-box {
+      padding: 10px;
+    }
+    .student-achievement-content {
+      font-size: 22px;
+      line-height: 28px;
+      font-weight: 400;
+      padding: 6px 10px;
+    }
+    .btn-back {
+      font-size: 16px;
+      line-height: 24px;
+      padding: 10px 20px;
+    }
+  }
+
   @include chiTietKyYeu("tablet");
   @include chiTietKyYeu("smallLaptop");
   @include chiTietKyYeu("mediumLaptop");
-  @include chiTietKyYeu("bigLaptop");
+  // @include chiTietKyYeu("bigLaptop");
+  @include breakpoint("bigLaptop") {
+    .student-avatar {
+      img {
+        box-shadow: 8.27497px 16.5499px 20.6874px rgba(229, 91, 230, 0.5);
+        border-radius: 35px;
+      }
+    }
+    .student-main-info {
+      font-size: 48px;
+      line-height: 50px;
+      margin-bottom: 20px;
+      &:nth-of-type(2) {
+        margin-bottom: 54px;
+      }
+    }
+    .student-achievement-label {
+      font-size: 32px;
+      padding: 20px 30px;
+      line-height: 45px;
+      margin-bottom: 54px;
+      border-radius: 13px;
+    }
+    .student-year {
+      font-size: 42px;
+      line-height: 48px;
+      border-left: 7px solid;
+      padding-left: 20px;
+      margin-bottom: 20px;
+    }
+    .student-achievement-box {
+      padding: 30px 20px;
+    }
+    .student-achievement-content {
+      font-size: 30px;
+      line-height: 20px;
+      padding: 20px 25px;
+    }
+    .btn-back {
+      font-size: 32px;
+      line-height: 45px;
+      padding: 27.5px 238px;
+      border-radius: 13px;
+    }
+  }
 }

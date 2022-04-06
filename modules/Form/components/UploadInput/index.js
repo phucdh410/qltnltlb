@@ -23,13 +23,13 @@ const useStyles = makeStyles((theme) => ({
 const maxSize = 10485760; // 10Mb dung lượng file tối đa upload cho 1 phần việc
 const UploadInput = ({ setFieldValue, name }) => {
   const classes = useStyles();
-  const [filesList, setFilesList] = useState([]);
+  const [file, setFile] = useState();
 
   const dragzoneRef = useRef(null);
 
   useEffect(() => {
-    setFieldValue(name, filesList);
-  }, [filesList]);
+    setFieldValue(name, file);
+  }, [file, setFieldValue, name]);
 
   const onDragEnter = (e) => {
     console.log("enter");
@@ -51,30 +51,37 @@ const UploadInput = ({ setFieldValue, name }) => {
     dragzoneRef.current.classList.remove("dragover");
     if (e.dataTransfer.files) {
       const newFiles = Object.values(e.dataTransfer.files);
-      const updatedList = [...filesList, ...newFiles];
+      const updatedList = [...file, ...newFiles];
       const sum = updatedList.reduce((prev, cur) => prev + cur.size, 0);
       if (sum > maxSize) {
         toast.error("Dung lượng file tối đa cho mỗi phần việc là 10Mb");
       } else {
-        setFilesList(updatedList);
+        setFile(updatedList);
       }
     }
   };
   const onFileChange = (e) => {
-    const newFiles = Object.values(e.target.files);
-    if (newFiles) {
-      const updatedList = [...filesList, ...newFiles];
-      const sum = updatedList.reduce((prev, cur) => prev + cur.size, 0);
-      if (sum > maxSize) {
-        toast.error("Dung lượng file tối đa cho mỗi phần việc là 10Mb");
-      } else {
-        setFilesList(updatedList);
-      }
+    const formData = new FormData();
+
+    const newFile = e.target.files[0];
+    const extension = newFile?.name?.split(".").pop();
+    const fileName = newFile.name;
+    const size = newFile.size;
+
+    if (!extension.match(/^(jpg|jpeg|png|webp|svg||pdf)$/)) {
+      toast.error("Định dạng file phải là ảnh hoặc pdf");
+    } else if (size > maxSize) {
+      toast.error("Dung lượng file tối đa cho mỗi phần việc là 10Mb");
+    } else {
+      formData.append("fileName", fileName);
+      formData.append("size", size);
+      formData.append("extension", extension);
+      console.log(formData);
+      setFile(newFile);
     }
   };
-  const onDelete = (index) => {
-    const updatedList = filesList.filter((e, i) => i !== index);
-    setFilesList(updatedList);
+  const onDelete = () => {
+    setFile();
   };
   return (
     <FormItem>
@@ -101,11 +108,10 @@ const UploadInput = ({ setFieldValue, name }) => {
               overflow: "auto",
             }}
           >
-            {filesList.length > 0 &&
-              filesList.map((e, i) => (
-                <FileItem key={i} name={e.name} onDelete={() => onDelete(i)} />
-                // <div key={i}>{e.name.slice(e.name.lastIndexOf(".") + 1)}</div>
-              ))}
+            {
+              file && <FileItem name={file.name} onDelete={onDelete} />
+              // <div key={i}>{e.name.slice(e.name.lastIndexOf(".") + 1)}</div>
+            }
           </div>
         </Box>
       </div>

@@ -1,3 +1,3 @@
 import axios from "axios";
 
-axios.defaults.baseURL = "http://115.79.199.129:3001";
+axios.defaults.baseURL = "https://hcmue-tnltlb.vtcode.vn:3001";

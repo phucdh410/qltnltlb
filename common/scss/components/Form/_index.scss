@@ -4,9 +4,146 @@
       color: red;
     }
   }
-  @include form("mobile");
-  @include form("tablet");
-  @include form("smallLaptop");
-  @include form("mediumLaptop");
-  @include form("bigLaptop");
+  @include breakpoint("mobile") {
+    .form-title {
+      padding: 12px 22px;
+      font-size: 16px;
+      line-height: 26px;
+    }
+    .form-content {
+      padding: 12px 24px;
+      .form-item {
+        padding-top: 16px;
+        .form-label {
+          font-size: 16px;
+          line-height: 22px;
+          padding: 0;
+          margin-bottom: 0;
+        }
+        .form-input {
+          padding: 0;
+          font-size: 14px;
+          line-height: 24px;
+          &.dropdown-input {
+            line-height: 20px;
+          }
+          &.year {
+            float: left;
+            max-width: 161px;
+          }
+          input {
+            padding: 10px;
+          }
+        }
+        .todo-label {
+          font-size: 16px;
+          line-height: 24px;
+          padding: 4px 10px;
+        }
+        .todo-icon {
+          height: 30px;
+          width: 30px;
+          font-size: 30px;
+        }
+        .file-item {
+          padding: 20px 15px;
+          position: relative;
+          .file-item__icon {
+            position: relative;
+            margin: auto;
+            height: 50px;
+            width: 50px;
+          }
+          .file-item__name {
+            color: #797a7e;
+            font-weight: 700;
+            font-size: 24px;
+            max-width: 200px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            font-size: 16px;
+            max-width: 130px;
+          }
+          .file-item__button {
+            background: none;
+            border: none;
+            color: #f1693e;
+            font-size: 18px;
+            line-height: 27.5px;
+            font-weight: 700;
+            text-decoration-line: underline;
+            text-decoration-thickness: 3px;
+          }
+        }
+      }
+    }
+  }
+  @include breakpoint("tablet") {
+  }
+  @include breakpoint("smallLaptop") {
+  }
+  @include breakpoint("mediumLaptop") {
+  }
+  @include breakpoint("bigLaptop") {
+  }
+  @include breakpoint("bigLaptop") {
+    .form-title {
+      padding: 20px 60px;
+      font-size: 32px;
+      line-height: 45px;
+    }
+    .form-content {
+      padding: 12px 60px;
+      .form-item {
+        padding-top: 20px;
+        .form-label {
+          font-size: 24px;
+          line-height: 27px;
+          padding: 15px 0;
+          margin-bottom: 0;
+        }
+        .form-input {
+          padding: 0;
+          font-size: 20px;
+          line-height: 30px;
+          &.dropdown-input {
+            line-height: 28px;
+          }
+          &.year {
+            float: left;
+            max-width: 161px;
+          }
+          input {
+            padding: 10px 20px;
+          }
+        }
+        .todo-label {
+          font-size: 24px;
+          line-height: 28px;
+          padding: 10px 24px;
+        }
+        .todo-icon {
+          height: 42px;
+          width: 42px;
+          font-size: 42px;
+        }
+        .file-item {
+          padding: 20px 15px;
+          .file-item__icon {
+            height: 100px;
+            width: 100px;
+          }
+          .file-item__name {
+            font-size: 24px;
+            max-width: 200px;
+          }
+          .file-item__button {
+            font-size: 24px;
+            line-height: 27.5px;
+          }
+        }
+      }
+    }
+  }
 }

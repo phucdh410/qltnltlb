@@ -5,6 +5,8 @@ const styles = {
   background: "none",
   border: "none",
   color: "#F1693E",
+  fontSize: "24px",
+  lineHeight: "27.5px",
   fontWeight: 700,
   textDecorationLine: "underline",
   textDecorationThickness: "3px",
@@ -12,19 +14,12 @@ const styles = {
 
 const FileItem = ({ src, name, onDelete }) => {
   return (
-    <div className="file-item" style={{ padding: "20px 15px" }}>
-      <Image src={src} alt={name} height={40} width={40} />
-      <p
-        style={{
-          overflow: "hidden",
-          textOverflow: "ellipsis",
-          whiteSpace: "nowrap",
-          maxWidth: "100px",
-        }}
-      >
-        {name}
-      </p>
-      <button onClick={onDelete} style={styles} type="button">
+    <div className="file-item">
+      <div className="file-item__icon">
+        <Image src={src} alt={name} layout="fill" />
+      </div>
+      <p className="file-item__name">{name}</p>
+      <button className="file-item__button" onClick={onDelete} type="button">
         Xóa
       </button>
     </div>

@@ -1,5 +1,8 @@
 .section-wrap {
   padding-top: 45px;
+  &.large {
+    padding-top: 103px;
+  }
 }
 .blog-detail-wrap {
   padding-top: 150px;
@@ -7,6 +10,9 @@
 @media screen and(max-width:769px) {
   .section-wrap {
     padding-top: 26px;
+    &.large {
+      padding-top: 80px;
+    }
   }
   .blog-detail-wrap {
     padding-top: 80px;

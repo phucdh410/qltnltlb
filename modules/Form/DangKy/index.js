@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import * as yup from "yup";
 import { useFormik } from "formik";
 import { useSelector, shallowEqual, useDispatch } from "react-redux";
@@ -43,9 +43,6 @@ const DangKy = ({ student }) => {
     }),
     shallowEqual
   );
-
-  // const onGetAchievement =
-
   const formik = useFormik({
     initialValues: {
       year: 2022,
@@ -57,6 +54,7 @@ const DangKy = ({ student }) => {
       dispatch(createAchievement(formik.values));
     },
   });
+
   const { setFieldValue } = formik;
   // Xử lý click button +
   const onClick = (e, index) => {
